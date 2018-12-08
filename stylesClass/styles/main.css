@@ -1,0 +1,45 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+header {
+  padding: 20px;
+  height: 90px;
+  width: 100%;
+  background-color: rgba(54, 54, 54, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+}
+
+header button {
+  margin: 20px;
+  padding: 10px;
+}
+
+h1 {
+  display: inline;
+  font-size: 60px;
+}
+
+h3 {
+  display: inline;
+}
+
+main {
+  height: 3000px;
+  background-color: orange;
+}
+/*# sourceMappingURL=main.css.map */

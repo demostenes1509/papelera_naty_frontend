@@ -1,0 +1,27 @@
+.presentation-section {
+  background-color: beige;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 80px;
+
+  >div {
+    margin-bottom: 50px;
+
+    h1 {
+      flex: 1;
+      font-size: 50px;
+    }
+    >div {
+      flex: 2;
+      background-color: white;
+    }
+  }
+
+  .card {
+    padding: 20px;
+    border-radius: 8px;
+  }
+}
