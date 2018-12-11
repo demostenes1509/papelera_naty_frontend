@@ -1,14 +1,43 @@
   header {
     height: 163px;
-    background-color: red;
     display: flex;
+
     .header-logo {
-      background-color: green;
-      width: 515px;
+      width: 52%;
+
+      h1 {
+        height: 100%;
+
+        a {
+          background: url('/public/images/logo.png') no-repeat center center;
+          height: 100%;
+          width: 100%;
+          display: inline-block;
+        }
+      }
     }
+
     .header-labels {
-      background-color: yellow;
-      width: 211px;
+      width: 21%;
+      margin: -12px 0 0 0;
+    }
+
+    .header-details {
+      background-color: red;
+      width: 25%;
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-around;
+
+      .cart-box {    
+        background: #eeeeee;
+
+        .header-cart {
+          background: url('/public/images/cart-icon.png') no-repeat left center;
+        }
+      }
     }
   }
   

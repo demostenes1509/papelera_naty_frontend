@@ -9,7 +9,7 @@ body {
 
 main {
   margin: 40px auto;
-  width: 980px;
+  width: 68%;
   background-color: #fff;
   border-radius: 10px;
 }
@@ -29,16 +29,38 @@ footer {
 /*# sourceMappingURL=styles.css.map */
 header {
   height: 163px;
-  background-color: red;
   display: flex;
 }
 header .header-logo {
-  background-color: green;
-  width: 515px;
+  width: 52%;
+}
+header .header-logo h1 {
+  height: 100%;
+}
+header .header-logo h1 a {
+  background: url("/public/images/logo.png") no-repeat center center;
+  height: 100%;
+  width: 100%;
+  display: inline-block;
 }
 header .header-labels {
-  background-color: yellow;
-  width: 211px;
+  width: 21%;
+  margin: -12px 0 0 0;
+}
+header .header-details {
+  background-color: red;
+  width: 25%;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+header .header-details .cart-box {
+  background: #eeeeee;
+}
+header .header-details .cart-box .header-cart {
+  background: url("/public/images/cart-icon.png") no-repeat left center;
 }
 
 /*# sourceMappingURL=styles.css.map */
@@ -68,20 +90,8 @@ header .header-labels {
   background-color: gray;
 }
 
-header {
-  height: 163px;
-  background-color: red;
-  display: flex;
-}
-header .header-logo {
-  background-color: green;
-  width: 515px;
-}
-header .header-labels {
+footer {
   background-color: yellow;
-  width: 211px;
 }
-
-/*# sourceMappingURL=styles.css.map */
 
 /*# sourceMappingURL=styles.css.map */
