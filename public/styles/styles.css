@@ -3,6 +3,11 @@
   margin: 0px;
 }
 
+a:link, a:visited {
+  text-decoration: none;
+  color: #2f2f2f;
+}
+
 body {
   background-color: #e7e6e6;
 }
@@ -17,9 +22,12 @@ main {
 .error-notification {
   background-color: #e05a65;
 }
-
-.navigation-bar {
-  background-color: orange;
+.error-notification p {
+  color: white;
+  text-align: center;
+  padding: 3px 0 4px;
+  font-size: 18px;
+  margin: 0x;
 }
 
 footer {
@@ -48,22 +56,33 @@ header .header-labels {
   margin: -12px 0 0 0;
 }
 header .header-details {
-  background-color: red;
   width: 25%;
   margin-left: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-around;
+  margin: 32px 0px 26px 0px;
 }
 header .header-details .cart-box {
   background: #eeeeee;
+  padding: 10px;
+  width: 80%;
+  border-radius: 4px;
 }
 header .header-details .cart-box .header-cart {
   background: url("/public/images/cart-icon.png") no-repeat left center;
+  padding: 0px 0px 0px 40px;
 }
 
 /*# sourceMappingURL=styles.css.map */
+.navigation-bar {
+  background: url("/public/images/main-nav-bg.png") no-repeat center center;
+  height: 65px;
+  width: 104%;
+  margin: 2px 0 0 -14px;
+}
+
 .container {
   background-color: blue;
   display: flex;

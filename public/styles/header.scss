@@ -23,19 +23,23 @@
     }
 
     .header-details {
-      background-color: red;
       width: 25%;
       margin-left: 10px;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
       justify-content: space-around;
+      margin: 32px 0px 26px 0px;
 
       .cart-box {    
         background: #eeeeee;
+        padding: 10px;
+        width: 80%;
+        border-radius: 4px;
 
         .header-cart {
           background: url('/public/images/cart-icon.png') no-repeat left center;
+          padding: 0px 0px 0px 40px;
         }
       }
     }
