@@ -14,7 +14,7 @@ body {
 
 main {
   margin: 40px auto;
-  width: 68%;
+  width: 90%;
   background-color: #fff;
   border-radius: 10px;
 }
@@ -46,7 +46,7 @@ header .header-logo h1 {
   height: 100%;
 }
 header .header-logo h1 a {
-  background: url("/public/images/logo.png") no-repeat center center;
+  background: url("../images/logo.png") no-repeat center center;
   height: 100%;
   width: 100%;
   display: inline-block;
@@ -71,13 +71,13 @@ header .header-details .cart-box {
   border-radius: 4px;
 }
 header .header-details .cart-box .header-cart {
-  background: url("/public/images/cart-icon.png") no-repeat left center;
+  background: url("../images/cart-icon.png") no-repeat left center;
   padding: 0px 0px 0px 40px;
 }
 
 /*# sourceMappingURL=styles.css.map */
 .navigation-bar {
-  background: url("/public/images/main-nav-bg.png") no-repeat center center;
+  background: url("../images/main-nav-bg.png") no-repeat center center;
   height: 65px;
   width: 104%;
   margin: 2px 0 0 -14px;
