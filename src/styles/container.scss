@@ -1,0 +1,28 @@
+.container {
+  background-color: blue;
+  display: flex;
+
+  .sidebar {
+    background-color: cyan;
+    width: 210px;
+    display: flex;
+    flex-direction: column;
+
+    .categories-sidebar {
+      background-color: lightgreen;
+    }
+    .discounts-sidebar {
+      background-color: darkgreen;
+    }
+    .contact-sidebar {
+      background-color: lightpink;
+    }
+    .information-sidebar {
+      background-color: limegreen;
+    }
+  }
+  .main-content {
+    background-color: gray;
+  }
+}
+
