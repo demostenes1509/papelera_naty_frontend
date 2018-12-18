@@ -6,7 +6,7 @@ class Slider extends Component {
         <div className="main-slider">
 					<div className="slider-container">
 						<ul className="slider-images">
-							<li><a href="#"><img src="images/slide-img.png" alt="slide image"></img></a></li>
+							<li><a href="#"><img src="/images/slide-img.png" alt="slide image"></img></a></li>
 						</ul>
 					</div>
 					<div className="slider-btn-container">
