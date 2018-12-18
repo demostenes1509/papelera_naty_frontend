@@ -3,6 +3,24 @@
   margin: 0px;
 }
 
+html,
+button,
+input,
+select,
+textarea {
+	font-family: "Helvetica Neue", sans-serif;
+}
+
+li {
+	list-style-type: none;
+}
+
+nav ul,
+nav ol {
+    list-style: none;
+    list-style-image: none;
+}
+
 a:link, a:visited {
   text-decoration: none;
   color: #2f2f2f;

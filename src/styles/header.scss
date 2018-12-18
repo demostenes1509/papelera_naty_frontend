@@ -9,7 +9,7 @@
         height: 100%;
 
         a {
-          background: url('../images/logo.png') no-repeat center center;
+          background: url('/images/logo.png') no-repeat center center;
           height: 100%;
           width: 100%;
           display: inline-block;
@@ -38,7 +38,7 @@
         border-radius: 4px;
 
         .header-cart {
-          background: url('../images/cart-icon.png') no-repeat left center;
+          background: url('/images/cart-icon.png') no-repeat left center;
           padding: 0px 0px 0px 40px;
         }
       }

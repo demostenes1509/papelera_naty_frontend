@@ -3,6 +3,24 @@
   margin: 0px;
 }
 
+html,
+button,
+input,
+select,
+textarea {
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+li {
+  list-style-type: none;
+}
+
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
+}
+
 a:link, a:visited {
   text-decoration: none;
   color: #2f2f2f;
@@ -46,7 +64,7 @@ header .header-logo h1 {
   height: 100%;
 }
 header .header-logo h1 a {
-  background: url("../images/logo.png") no-repeat center center;
+  background: url("/images/logo.png") no-repeat center center;
   height: 100%;
   width: 100%;
   display: inline-block;
@@ -71,30 +89,52 @@ header .header-details .cart-box {
   border-radius: 4px;
 }
 header .header-details .cart-box .header-cart {
-  background: url("../images/cart-icon.png") no-repeat left center;
+  background: url("/images/cart-icon.png") no-repeat left center;
   padding: 0px 0px 0px 40px;
 }
 
 /*# sourceMappingURL=styles.css.map */
 .navigation-bar {
-  background: url("../images/main-nav-bg.png") no-repeat center center;
+  background: url("/images/main-nav-bg.png") no-repeat center center;
   height: 65px;
   width: 104%;
-  margin: 2px 0 0 -14px;
+  margin: 2px 0 0 -28px;
 }
 
 .container {
-  background-color: blue;
   display: flex;
 }
 .container .sidebar {
-  background-color: cyan;
-  width: 210px;
+  width: 20%;
   display: flex;
   flex-direction: column;
 }
-.container .sidebar .categories-sidebar {
-  background-color: lightgreen;
+.container .sidebar .categories-sidebar .aside-title {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 200;
+  background: url("/images/aside-title-banner.png") no-repeat left center;
+  width: 241px;
+  height: 49px;
+  margin: 10px 0 0 -17px;
+  line-height: 42px;
+  padding: 0 0 0 30px;
+}
+.container .sidebar .categories-sidebar .aside-menu li {
+  border-bottom: 1px solid #ddd;
+  font-size: 17px;
+  position: relative;
+}
+.container .sidebar .categories-sidebar .aside-menu li a {
+  background: url("/images/list-point.png") no-repeat 10px 6px;
+  padding: 0px 12px 8px 25px;
+  display: inline-block;
+}
+.container .sidebar .categories-sidebar ul.aside-menu > li > a.aside-active, .container .sidebar .categories-sidebar ul.aside-sub-menu li a.aside-active {
+  color: #d41b29;
+}
+.container .sidebar .categories-sidebar .aside-sub-menu {
+  margin: 0 0 0 30px;
 }
 .container .sidebar .discounts-sidebar {
   background-color: darkgreen;

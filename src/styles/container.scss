@@ -1,15 +1,47 @@
 .container {
-  background-color: blue;
   display: flex;
 
   .sidebar {
-    background-color: cyan;
-    width: 210px;
+    width: 20%;
     display: flex;
     flex-direction: column;
 
     .categories-sidebar {
-      background-color: lightgreen;
+      .aside-title {
+        color: #fff;
+        font-size: 22px;
+        font-weight: 200;
+        background: url('/images/aside-title-banner.png') no-repeat left center;
+        width: 241px;
+        height: 49px;
+        margin: 10px 0 0 -17px;
+        line-height: 42px;
+        padding: 0 0 0 30px;        
+      }
+
+      .aside-menu {
+
+        li {
+          border-bottom: 1px solid #ddd;
+          font-size: 17px;
+          position: relative;       
+          
+          a {
+            background: url('/images/list-point.png') no-repeat 10px 6px;
+            padding: 0px 12px 8px 25px;
+            display: inline-block;            
+          }
+        }
+      }
+
+      ul.aside-menu > li > a.aside-active, ul.aside-sub-menu li a.aside-active {
+        color: #d41b29;
+      }
+      
+      .aside-sub-menu {
+        margin: 0 0 0 30px;
+      }
+      
     }
     .discounts-sidebar {
       background-color: darkgreen;

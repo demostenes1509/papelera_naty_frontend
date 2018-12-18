@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import ErrorBar from './ErrorBar';
-import NavigationBar from './NavigationBar';
-import Container from './Container';
-import Footer from './Footer';
+import Header from './components/header/Header';
+import ErrorBar from './components/errorbar/ErrorBar';
+import NavigationBar from './components/navigationbar/NavigationBar';
+import Container from './components/container/Container';
+import Footer from './components/footer/Footer';
 
 class App extends Component {
   render() {
