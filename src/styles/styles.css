@@ -104,6 +104,10 @@ header .header-details .cart-box .header-cart {
 .container {
   display: flex;
 }
+.container .main-content {
+  background-color: gray;
+  width: 80%;
+}
 .container .sidebar {
   width: 20%;
   display: flex;
@@ -134,7 +138,7 @@ header .header-details .cart-box .header-cart {
   color: #d41b29;
 }
 .container .sidebar .categories-sidebar .aside-sub-menu {
-  margin: 0 0 0 30px;
+  margin: 0px 0px 0px 30px;
 }
 .container .sidebar .discounts-sidebar {
   background-color: darkgreen;
@@ -145,8 +149,26 @@ header .header-details .cart-box .header-cart {
 .container .sidebar .information-sidebar {
   background-color: limegreen;
 }
-.container .main-content {
-  background-color: gray;
+.container .main-slider {
+  margin: 20px 30px 0px 30px;
+  background-color: aqua;
+}
+.container .slider-btn-container {
+  text-align: center;
+}
+.container .slider-btns li {
+  display: inline;
+  text-indent: -9999px;
+  margin: 2px;
+}
+.container .slider-btns li a {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  background: url("/images/slide-btn.png") no-repeat center center;
+}
+.container .slider-btns li a.active-slide, .container .slider-btns li .slider-btns li a:hover {
+  background: url("/images/slide-btn-active.png") no-repeat center center;
 }
 
 footer {

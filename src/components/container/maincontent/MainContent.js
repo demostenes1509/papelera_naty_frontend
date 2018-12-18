@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
+import Slider from './slider/Slider';
+
 class MainContent extends Component {
   render() {
     return (
         <div className="main-content">
-            <p>MAIN CONTENT 33</p>
+            <Slider />
         </div>
     );
   }

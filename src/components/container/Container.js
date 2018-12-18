@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SideBar from './SideBar';
-import MainContent from './MainContent';
+import SideBar from './sidebar/SideBar';
+import MainContent from './maincontent/MainContent';
 
 class Container extends Component {
   render() {
@@ -12,5 +12,5 @@ class Container extends Component {
     );
   }
 }
-
+ 
 export default Container;

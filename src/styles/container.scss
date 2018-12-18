@@ -1,6 +1,11 @@
 .container {
   display: flex;
 
+  .main-content {
+    background-color: gray;
+    width: 80%;
+  }
+
   .sidebar {
     width: 20%;
     display: flex;
@@ -39,7 +44,7 @@
       }
       
       .aside-sub-menu {
-        margin: 0 0 0 30px;
+        margin: 0px 0px 0px 30px;
       }
       
     }
@@ -53,8 +58,32 @@
       background-color: limegreen;
     }
   }
-  .main-content {
-    background-color: gray;
+
+  .main-slider {
+    margin: 20px 30px 0px 30px;
+    background-color: aqua;
   }
+
+  .slider-btn-container {
+    text-align: center;
+  }
+
+  .slider-btns li {
+    display: inline;
+    text-indent: -9999px;
+    margin: 2px;
+
+    a {
+      display: inline-block;
+      height: 15px;
+      width: 15px;
+      background: url('/images/slide-btn.png') no-repeat center center;
+    }
+
+    a.active-slide, .slider-btns li a:hover {
+      background: url('/images/slide-btn-active.png') no-repeat center center;
+    }
+  }  
+
 }
 
