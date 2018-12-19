@@ -1,0 +1,31 @@
+h2.main-title {
+  color: #2b2b2b;
+  font-size: 22px;
+  font-weight: 200;
+  margin-bottom: 10px;
+} 
+
+.main-products-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.main-product {
+  width: 31%;
+  margin: 0 2% 40px 0;
+}
+
+.main-product-title {
+  font-size: 15px;
+}
+
+.main-product-description {
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.main-product-image {
+  width: 100%;
+
+}

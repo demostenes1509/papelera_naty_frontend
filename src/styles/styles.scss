@@ -1,5 +1,5 @@
 @import 'main';
-@import 'header';
-@import 'navigation';
-@import 'container';
-@import 'footer';
+@import '../components/header/header';
+@import '../components/navigationbar/navigationbar';
+@import '../components/container/container';
+@import '../components/footer/footer';
