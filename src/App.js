@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
-import Header from './components/header/Header';
-import ErrorBar from './components/errorbar/ErrorBar';
-import NavigationBar from './components/navigationbar/NavigationBar';
-import Container from './components/container/Container';
-import Footer from './components/footer/Footer';
+import HomePageContainer from './components/container/HomePageContainer';
+import AuthenticationContainer from './components/container/AuthenticationContainer';
+import { BrowserRouter as Router, Switch } from "react-router-dom";
+import Layout from './components/Layout';
 
 class App extends Component {
   render() {
     return (
-        <main>
-            <Header />
-            <ErrorBar />
-            <NavigationBar />
-            <Container />
-            <Footer />
-        </main>
+      <Router>
+        <Switch>
+          <Layout exact path="/" component={HomePageContainer}/>
+          <Layout exact path="/login" component={AuthenticationContainer}/>
+        </Switch>
+      </Router>
     );
   }
 }
