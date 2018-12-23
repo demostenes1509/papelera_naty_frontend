@@ -23,22 +23,17 @@
     position: relative;
   }
 
+  ul.aside-menu > li a {
+    background: url('/images/list-point.png') no-repeat 10px 8px;
+    padding: 2px 12px 6px 25px;
+    display: inline-block;            
+  }
+
+  ul.aside-menu > li > a.aside-active, ul.aside-sub-menu li a.aside-active {
+    color: #d41b29;
+  }
+
   .categories-sidebar {
-
-    .aside-menu {
-
-      li {
-        a {
-          background: url('/images/list-point.png') no-repeat 10px 8px;
-          padding: 2px 12px 6px 25px;
-          display: inline-block;            
-        }
-      }
-    }
-
-    ul.aside-menu > li > a.aside-active, ul.aside-sub-menu li a.aside-active {
-      color: #d41b29;
-    }
     
     .aside-sub-menu {
       margin: 0px 0px 0px 30px;
@@ -123,8 +118,10 @@
     }
 
   }
+
+  // Information
+
   .information-sidebar {
-    background-color: limegreen;
   }
 }
 

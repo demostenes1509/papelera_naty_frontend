@@ -1,3 +1,101 @@
-footer {
-  background-color: yellow;
+footer.main-footer {
+  background: #0c6be8;
+  color: #fff;
+  padding: 20px;
+  -webkit-border-radius: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  flex-direction: column;
 }
+
+section.footer-subscribe > p {
+  width: 46%;
+  line-height: 22px;
+}
+.footer-subscribe p {
+  font-size: 22px;
+  color: #fff;
+  margin: 0 2% 0 0;
+}
+
+.footer-subscribe p, .subscribe-form {
+  width: 52%;
+  float: left;
+}
+
+.footer-links {
+  width: 18%;
+  float: left;
+  margin: 0 2% 0 0;
+}
+
+.subscribe-input input[type=text] {
+  border: none;
+  margin: 0;
+  padding: 7px 2%;
+  height: 20px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  background: #fff;
+  border: 2px solid #004db2;
+  width: 74%;
+  float: left;
+  color: #2b2b2b;
+}
+
+.subscribe-checkbox span {
+  font-size: 14px;
+  margin: 0 0 0 3px;
+}
+
+.subscribe-btn {
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 9px 2%;
+  margin: 0 0 0 2%;
+  height: 38px;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+  *height: 13px;
+  *width: 13px;
+}
+
+.subscribe-checkbox span a:link, .subscribe-checkbox span a:visited {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-links {
+  width: 18%;
+  float: left;
+  margin: 0 2% 0 0;
+}
+
+.footer-links h4 {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 30px 0px;
+}
+
+.footer-links ul {
+  margin: 0;
+}
+
+.footer-links ul li {
+  margin: 0 0 4px;
+  line-height: 16px;
+}
+
+.footer-links ul li a:link, .footer-links ul li a:visited {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 200;
+}
+

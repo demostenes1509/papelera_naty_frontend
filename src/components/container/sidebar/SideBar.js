@@ -85,7 +85,17 @@ class SideBar extends Component {
 
 
             <div className="information-sidebar">
-                <p>INFORMATION</p>
+                <h2 className="aside-title">Información</h2>
+                <ul className="aside-menu">
+                    <li><a href="#">Envíos y Devoluciones</a></li>
+                    <li><a href="#">Quienes somos</a></li>
+                    <li><a href="#">Aviso legal</a></li>
+                    <li><a href="#">Condiciones generales</a></li>
+                    <li><a href="#">Formas de pago</a></li>
+                    <li><a href="#">Protección de datos</a></li>
+                    <li><a href="#">Política de cookies</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                </ul>
             </div>
         </div>
     );
