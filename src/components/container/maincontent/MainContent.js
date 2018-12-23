@@ -7,7 +7,7 @@ class MainContent extends Component {
   render() {
     return (
         <div className="main-content">
-            <Slider />
+            {/* <Slider /> */}
             <MainProducts />
         </div>
     );
