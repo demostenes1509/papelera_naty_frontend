@@ -171,7 +171,7 @@ button.search-btn {
   display: flex;
   flex-direction: column;
 }
-.sidebar .categories-sidebar .aside-title {
+.sidebar h2.aside-title {
   color: #fff;
   font-size: 22px;
   font-weight: 200;
@@ -182,13 +182,14 @@ button.search-btn {
   line-height: 42px;
   padding: 0 0 0 30px;
 }
-.sidebar .categories-sidebar .aside-menu li {
+.sidebar ul.aside-menu > li {
+  border-bottom: 1px solid #ddd;
   font-size: 17px;
   position: relative;
 }
 .sidebar .categories-sidebar .aside-menu li a {
-  background: url("/images/list-point.png") no-repeat 10px 6px;
-  padding: 0px 12px 8px 25px;
+  background: url("/images/list-point.png") no-repeat 10px 8px;
+  padding: 2px 12px 6px 25px;
   display: inline-block;
 }
 .sidebar .categories-sidebar ul.aside-menu > li > a.aside-active, .sidebar .categories-sidebar ul.aside-sub-menu li a.aside-active {
@@ -198,10 +199,59 @@ button.search-btn {
   margin: 0px 0px 0px 30px;
 }
 .sidebar .discounts-sidebar {
-  background-color: darkgreen;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.sidebar .contact-sidebar {
-  background-color: lightpink;
+.sidebar .discounts-sidebar .discount-container {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+.sidebar .discounts-sidebar .discount-container .discount-details {
+  width: 65%;
+  float: right;
+}
+.sidebar .discounts-sidebar .discount-container .discount-details ul li {
+  font-size: 12px;
+}
+.sidebar .discounts-sidebar .discount-container .discount-details ul li.old-price {
+  font-size: 14px;
+  text-decoration: line-through;
+}
+.sidebar .discounts-sidebar .discount-container .discount-details ul li.discount-price {
+  color: #d41b29;
+  font-size: 12px;
+}
+.sidebar .discounts-sidebar .discount-container .discount-image {
+  width: 30%;
+  float: left;
+}
+.sidebar .discounts-sidebar .discount-container .discount-image a {
+  margin: 20px 0 0;
+  display: inline-block;
+}
+.sidebar .discounts-sidebar .discount-container .discount-image img {
+  width: 100%;
+}
+.sidebar .discounts-sidebar p {
+  clear: both;
+  text-align: right;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.sidebar .contact-sidebar .contact-details {
+  margin-left: 10px;
+}
+.sidebar .contact-sidebar .contact-details ul li {
+  font-size: 19px;
+  line-height: 38px;
+  padding: 0 0 0 40px;
+}
+.sidebar .contact-sidebar .contact-details ul li.aside-tel {
+  background: url("/images/tel-icon.png") no-repeat left center;
+}
+.sidebar .contact-sidebar .contact-details ul li.aside-email {
+  background: url("/images/email-icon.png") no-repeat left center;
 }
 .sidebar .information-sidebar {
   background-color: limegreen;
@@ -322,9 +372,28 @@ a.enlarge-product-btn {
   margin: 0 0 20px;
 }
 
-.product-info {
-  text-align: center;
+.product-details-col h2 {
+  font-size: 22px;
+  font-weight: 600;
   margin: 0 0 20px;
+}
+
+.product-info-2 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.product-info-2 div {
+  background: #2b2b2b;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+  padding: 10px 0;
+  width: 100px;
+  text-transform: uppercase;
 }
 
 .product-content-details ul {
@@ -373,24 +442,6 @@ a.add-to-basket {
 
 .product-discount-text {
   color: #d41b29;
-}
-
-.product-info ul.info-list li:first-child {
-  float: left;
-}
-
-.product-info ul.info-list li {
-  background: #2b2b2b;
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 600;
-  text-align: center;
-  color: #fff;
-  display: inline-block;
-  padding: 10px 0;
-  width: 100px;
-  text-transform: uppercase;
 }
 
 .container {

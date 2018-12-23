@@ -20,12 +20,18 @@ class Product extends Component {
 					<h2>Bolsa de banditas elasticas</h2>
 					<p>Bolsa de banditas elasticas</p>
 					<p><span className="product-discount-text">AHORRO del 20% comprando la caja completa.</span></p>
-					<div className="product-info">
-						<ul className="info-list">
+					<div className="product-info-2">
+
+							<div>Envio Gratis</div>
+							<div>Entregas 24/72h</div>
+							<div>Pago 100% Seguro</div>
+
+
+						{/* <ul className="info-list">
 							<li>Envio Gratis</li>
 							<li>Entregas 24/72h</li>
 							<li>Pago 100% Seguro</li>
-						</ul>
+						</ul> */}
 					</div>
 					<div className="product-content-details">
 						<ul>

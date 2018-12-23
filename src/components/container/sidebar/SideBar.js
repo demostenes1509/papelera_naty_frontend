@@ -4,6 +4,9 @@ class SideBar extends Component {
   render() {
     return (
         <div className="sidebar">
+
+            {/* Categories */}
+
             <div className="categories-sidebar">
                 <h2 className="aside-title">Categorias</h2>
 
@@ -30,12 +33,57 @@ class SideBar extends Component {
                     </li>
                 </ul>
             </div>
+
+            {/* Discounts */}
+
             <div className="discounts-sidebar">
-                <p>DISCOUNTS</p>
+                <h2 className="aside-title">Descuentos</h2>
+                <div className="discount-container ">
+                    <div className="discount-image">
+                        <a href="#"><img src="/images/discount-product.jpg" alt="" /></a>
+                    </div>
+                    <div className="discount-details">
+                        <ul>
+                            <li className="item-name"><span className="discount-tag">10%</span>
+                                <a href="#">Vasos de Plastico Irrompibles 100cc Moca</a>
+                            </li>
+                            <li className="old-price">1,84 €</li>
+                            <li className="discount-price">1,47 €</li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="discount-container">
+                    <div className="discount-image">
+                        <a href="#"><img src="/images/discount-product.jpg" alt="" /></a>
+                    </div>
+                    <div className="discount-details">
+                        <ul>
+                            <li className="item-name"><span className="discount-tag">10%</span>
+                                <a href="#">Vasos de Plastico Irrompibles 100cc Moca</a>
+                            </li>
+                            <li className="old-price">1,84 €</li>
+                            <li className="discount-price">1,47 €</li>
+                        </ul>
+                    </div>
+                </div>
+                <p><a href="#">&gt;&gt; Todos los descuentos</a></p>
             </div>
-            <div className="contact-sidebar">
-                <p>CONTACT</p>
+
+            {/* Contact */}
+
+            <div className="contact-sidebar" >
+
+                <h2 className="aside-title">Contactar</h2>
+                <div className="contact-details">
+                    <ul>
+                        <li className="aside-tel"><a href="#">011 5888 3335</a></li>
+                        <li className="aside-email"><a href="#">naty@papeleranaty.com</a></li>
+                    </ul>
+                </div>
             </div>
+
+
+
             <div className="information-sidebar">
                 <p>INFORMATION</p>
             </div>

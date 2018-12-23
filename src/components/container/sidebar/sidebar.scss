@@ -3,28 +3,34 @@
   display: flex;
   flex-direction: column;
 
+  // Categories
+
+  h2.aside-title {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 200;
+    background: url('/images/aside-title-banner.png') no-repeat left center;
+    width: 241px;
+    height: 49px;
+    margin: 10px 0 0 -17px;
+    line-height: 42px;
+    padding: 0 0 0 30px;
+  }
+
+  ul.aside-menu > li {
+    border-bottom: 1px solid #ddd;
+    font-size: 17px;
+    position: relative;
+  }
+
   .categories-sidebar {
-    .aside-title {
-      color: #fff;
-      font-size: 22px;
-      font-weight: 200;
-      background: url('/images/aside-title-banner.png') no-repeat left center;
-      width: 241px;
-      height: 49px;
-      margin: 10px 0 0 -17px;
-      line-height: 42px;
-      padding: 0 0 0 30px;        
-    }
 
     .aside-menu {
 
       li {
-        font-size: 17px;
-        position: relative;       
-        
         a {
-          background: url('/images/list-point.png') no-repeat 10px 6px;
-          padding: 0px 12px 8px 25px;
+          background: url('/images/list-point.png') no-repeat 10px 8px;
+          padding: 2px 12px 6px 25px;
           display: inline-block;            
         }
       }
@@ -37,13 +43,85 @@
     .aside-sub-menu {
       margin: 0px 0px 0px 30px;
     }
-    
   }
+
+  // Discounts
+
   .discounts-sidebar {
-    background-color: darkgreen;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .discount-container {
+      margin-bottom: 10px;
+      margin-left: 10px;
+
+      .discount-details {
+        width: 65%;
+        float: right;
+  
+        ul li {
+          font-size: 12px;
+        } 
+  
+        ul li.old-price {
+          font-size: 14px;
+          text-decoration: line-through;
+        }
+  
+        ul li.discount-price {
+          color: #d41b29;
+          font-size: 12px;
+        }
+      }    
+  
+      .discount-image {
+        width: 30%;
+        float: left;
+  
+        a {
+          margin: 20px 0 0;
+          display: inline-block;
+        }
+  
+        img {
+            width: 100%;
+        }      
+      }    
+  
+    }
+
+    p {
+      clear: both;
+      text-align: right;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }    
   }
+
+  // Contacts
+
   .contact-sidebar {
-    background-color: lightpink;
+
+    .contact-details {
+      margin-left: 10px;
+
+      ul li {
+        font-size: 19px;
+        line-height: 38px;
+        padding: 0 0 0 40px;
+      }
+  
+      ul li.aside-tel {
+        background: url('/images/tel-icon.png') no-repeat left center;
+      }
+
+      ul li.aside-email {
+        background: url('/images/email-icon.png') no-repeat left center;
+      }      
+    }
+
   }
   .information-sidebar {
     background-color: limegreen;
