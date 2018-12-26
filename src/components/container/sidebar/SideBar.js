@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { get } from 'axios';
 
 class SideBar extends Component {
+
+    constructor() {
+        super();
+        this.state = { categories: [] };
+    }
+
   render() {
     return (
         <div className="sidebar">
@@ -9,8 +17,16 @@ class SideBar extends Component {
 
             <div className="categories-sidebar">
                 <h2 className="aside-title">Categorias</h2>
+                        <ul className="aside-menu">
+                            {this.state.categories.map(category => (
+                                <li>
+                                    <Link to="/category/{category.id}">{category.name}</Link>
+                                    {/* {el.name}: {el.price_usd} */}
+                                </li>
+                            ))}
+                        </ul>
 
-                <ul className="aside-menu">
+                {/* <ul className="aside-menu">
                     <li><a href="#" className="aside-active">Vasos de Plastico</a>
                         <span className="expand"></span>
                         <ul className="aside-sub-menu">
@@ -31,7 +47,7 @@ class SideBar extends Component {
                             <li><a href="#">Sub Item 3</a></li>
                         </ul>
                     </li>
-                </ul>
+                </ul> */}
             </div>
 
             {/* Discounts */}
@@ -100,6 +116,27 @@ class SideBar extends Component {
         </div>
     );
   }
+
+  async componentDidMount() {
+
+    console.log('ACAACACAC1111');
+
+    const response = await get(`http://localhost:3001/categories`);
+
+    console.log('MEC>1');
+
+    
+    const json = await response.json();
+
+    console.log('MEC>2');
+
+    console.log(response);
+    console.log(json);
+
+    this.setState({ categories: json });
+}
+
+
 }
 
 export default SideBar;
