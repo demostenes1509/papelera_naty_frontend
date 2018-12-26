@@ -19,8 +19,8 @@ class SideBar extends Component {
                 <h2 className="aside-title">Categorias</h2>
                         <ul className="aside-menu">
                             {this.state.categories.map(category => (
-                                <li>
-                                    <Link to="/category/{category.id}">{category.name}</Link>
+                                <li key={category.id}>
+                                    <Link to={`/category/${category.id}`}>{category.name}</Link>
                                     {/* {el.name}: {el.price_usd} */}
                                 </li>
                             ))}
