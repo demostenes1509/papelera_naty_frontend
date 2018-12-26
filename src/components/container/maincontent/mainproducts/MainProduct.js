@@ -12,7 +12,7 @@ class MainProduct extends Component {
 					<h3 className="main-product-title"><a href="#">Sed ut perspiciatis unde omnis iste</a></h3>
 					<p className="main-product-description"><a href="#">Do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed ut perspiciatis unde omnis iste natus error sit voluptatem...</a></p>
 					<div className="product-prices">
-						<p><span class="price-con">1,25€</span> con IVA</p>
+						<p><span className="price-con">1,25€</span> con IVA</p>
 						<p>1,25€ sin IVA</p>
 					</div>
 

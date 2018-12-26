@@ -117,26 +117,10 @@ class SideBar extends Component {
     );
   }
 
-  async componentDidMount() {
-
-    console.log('ACAACACAC1111');
-
-    const response = await get(`http://localhost:3001/categories`);
-
-    console.log('MEC>1');
-
-    
-    const json = await response.json();
-
-    console.log('MEC>2');
-
-    console.log(response);
-    console.log(json);
-
-    this.setState({ categories: json });
-}
-
-
+    async componentDidMount() {
+        const categories = await get(`http://localhost:3001/categories`);
+        this.setState({ categories: categories.data });
+    }
 }
 
 export default SideBar;
