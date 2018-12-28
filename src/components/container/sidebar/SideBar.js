@@ -20,8 +20,14 @@ class SideBar extends Component {
                         <ul className="aside-menu">
                             {this.state.categories.map(category => (
                                 <li key={category.id}>
-                                    <Link to={`/category/${category.id}`}>{category.name}</Link>
-                                    {/* {el.name}: {el.price_usd} */}
+                                    <Link to={`/category/${category.url}`}>{category.name}</Link>
+                                    <ul className="aside-sub-menu">
+                                        {category.products.map(product => (
+                                            <li>
+                                                <Link to={`/category/${category.url}/product/${product.url}`}>{product.name}</Link>
+                                            </li>
+                                        ))}                                    
+                                    </ul>
                                 </li>
                             ))}
                         </ul>
@@ -118,7 +124,7 @@ class SideBar extends Component {
   }
 
     async componentDidMount() {
-        const categories = await get(`http://localhost:3001/categories`);
+        const categories = await get(`http://localhost:3001/categoriesproducts`);
         this.setState({ categories: categories.data });
     }
 }
