@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import sidebarActions from './sidebarActions'
+
 class SideBar extends Component {
 
     constructor() {
@@ -19,9 +20,15 @@ class SideBar extends Component {
                 <h2 className="aside-title">Categorias</h2>
                         <ul className="aside-menu">
                             {this.state.categories.map(category => (
-                                <li>
-                                    <Link to="/category/{category.id}">{category.name}</Link>
-                                    {/* {el.name}: {el.price_usd} */}
+                                <li key={category.id}>
+                                    <Link to={`/category/${category.url}`}>{category.name}</Link>
+                                    <ul className="aside-sub-menu">
+                                        {category.products.map(product => (
+                                            <li>
+                                                <Link to={`/category/${category.url}/product/${product.url}`}>{product.name}</Link>
+                                            </li>
+                                        ))}                                    
+                                    </ul>
                                 </li>
                             ))}
                         </ul>
