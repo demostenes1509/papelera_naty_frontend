@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { get } from 'axios';
-
+import { connect } from 'react-redux'
+import sidebarActions from './sidebarActions'
 class SideBar extends Component {
 
     constructor() {
@@ -117,10 +117,6 @@ class SideBar extends Component {
     );
   }
 
-    async componentDidMount() {
-        const categories = await get(`http://localhost:3001/categories`);
-        this.setState({ categories: categories.data });
-    }
 }
 
 export default SideBar;

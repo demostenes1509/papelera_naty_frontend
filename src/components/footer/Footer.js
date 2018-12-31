@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux'
+import footerActions from './footerActions'
+import { Link } from 'react-router-dom';
+ 
 class Footer extends Component {
   render() {
+
+    const { payload, loading } = this.props
+
     return (
 
         <footer className="main-footer">
@@ -19,22 +25,14 @@ class Footer extends Component {
           <section className="footer-columns">
             <div className="footer-links">
               <h4>Categorias</h4>
-              <ul>
-                <li><a href="#">Vasos de Plastico</a></li>
-                <li><a href="#">Vasos Personalizados</a></li>
-                <li><a href="#">Vasos de Cubata, Mojito y Sidra</a></li>
-                <li><a href="#">Copas de Plastico</a></li>
-                <li><a href="#">Chupitos de Plastico</a></li>
-                <li><a href="#">Jarras de Plastico</a></li>
-                <li><a href="#">Vasos de Carton</a></li>
-                <li><a href="#">Vasos de Plastico</a></li>
-                <li><a href="#">Vasos Personalizados</a></li>
-                <li><a href="#">Vasos de Cubata, Mojito y Sidra</a></li>
-                <li><a href="#">Copas de Plastico</a></li>
-                <li><a href="#">Chupitos de Plastico</a></li>
-                <li><a href="#">Jarras de Plastico</a></li>
-                <li><a href="#">Vasos de Carton</a></li>
-              </ul>
+                {loading
+                  ? 'Loading categories..'
+                  : <ul>
+                  {payload.categories.map(
+                    (category) => <li key={category.id}><Link to={category.url}>{category.name}</Link></li>
+                  )}
+                </ul>
+                }
             </div>
             <div className="footer-links">
               <h4>Infomacion</h4>
@@ -82,6 +80,20 @@ class Footer extends Component {
 
     );
   }
+
+  componentDidMount () {
+    this.props.fetchFooter();
+  }
+
 }
 
-export default Footer;
+const mapStateToProps = state => ({
+  payload: state.footerReducer.payload,
+  loading: state.footerReducer.loading
+})
+
+const mapDispatchToProps = dispatch => ({
+  fetchFooter: () => dispatch(footerActions.fetchFooter())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer)

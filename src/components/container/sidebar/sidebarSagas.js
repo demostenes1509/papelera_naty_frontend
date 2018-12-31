@@ -1,0 +1,34 @@
+import { take, fork, call, put } from 'redux-saga/effects'
+import Actions, { FooterTypes } from './sidebarActions'
+import FooterApi from './sidebarApi'
+
+/* --------------------- Watchers ------------------ */
+
+const watchFetchFooter = function * () {
+  while (true) {
+    yield take(FooterTypes.FETCH_FOOTER)
+    yield fork(fetchFooter)
+  }
+}
+
+export default { watchFetchFooter }
+
+/* --------------------- Subroutines --------------- */
+
+function * fetchFooter () {
+  try {
+    yield put(Actions.fetchFooterLoading())
+    const response = yield call(FooterApi.fetchFooter)
+
+    if (response.status === 200) {
+      console.log('success - fetchFooter: ', response.data);
+      yield put(Actions.fetchFooterSuccess(response.data))
+    } else {
+      // yield put(Actions.reviewLokalError(''))
+      console.log('fetchFooter fail: ', response)
+    }
+  } catch (err) {
+    console.log('error - fetchFooter: ', err)
+    // yield put(Actions.reviewLokalError(''))
+  }
+}
