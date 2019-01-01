@@ -11,8 +11,10 @@ class App extends Component {
       <Router>
         <Switch>
           <Layout exact path="/" component={HomePageContainer}/>
+          <Layout exact path="/:category" component={HomePageContainer}/>
+          <Layout exact path="/search/:search" component={HomePageContainer}/>
           <Layout exact path="/login" component={AuthenticationContainer}/>
-          <Layout exact path="/product" component={ProductContainer}/>
+          <Layout exact path="/:category/:product" component={ProductContainer}/>
         </Switch>
       </Router>
     );

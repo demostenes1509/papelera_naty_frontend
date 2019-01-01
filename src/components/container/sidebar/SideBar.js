@@ -8,6 +8,9 @@ class SideBar extends Component {
     render() {
     const { payload, loading } = this.props
 
+    console.log(payload.offers);
+
+
     return (
 
         <div className="sidebar">
@@ -16,20 +19,20 @@ class SideBar extends Component {
 
             <div className="categories-sidebar">
                 <h2 className="aside-title">Categorias</h2>
-                        <ul className="aside-menu">
-                            {payload.categories.map(category => (
-                                <li key={category.id}>
-                                    <Link to={`/${category.url}`}>{category.name}</Link>
-                                    <ul className="aside-sub-menu">
-                                        {category.products.map(product => (
-                                            <li>
-                                                <Link to={`/${category.url}/${product.url}`}>{product.name}</Link>
-                                            </li>
-                                        ))}                                    
-                                    </ul>
-                                </li>
-                            ))}
-                        </ul>
+                    <ul className="aside-menu">
+                        {payload.categories.map(category => (
+                            <li key={category.id}>
+                                <Link to={`/${category.url}`}>{category.name}</Link>
+                                <ul className="aside-sub-menu">
+                                    {category.products.map(product => (
+                                        <li>
+                                            <Link to={`/${category.url}/${product.url}`}>{product.name}</Link>
+                                        </li>
+                                    ))}                                    
+                                </ul>
+                            </li>
+                        ))}
+                    </ul>
 
                 {/* <ul className="aside-menu">
                     <li><a href="#" className="aside-active">Vasos de Plastico</a>
@@ -59,34 +62,28 @@ class SideBar extends Component {
 
             <div className="discounts-sidebar">
                 <h2 className="aside-title">Descuentos</h2>
-                <div className="discount-container ">
-                    <div className="discount-image">
-                        <a href="#"><img src="/images/discount-product.jpg" alt="" /></a>
+
+
+                {payload.offers.map(offer => (
+                    <div className="discount-container ">
+                        <div className="discount-image">
+                            <Link to={`/${offer.category.url}/${offer.url}`}>
+                                <img src="/images/discount-product.jpg" alt="" />
+                            </Link>
+                        </div>
+                        <div className="discount-details">
+                            <ul>
+                                <li className="item-name"><span className="discount-tag">10%</span>
+                                    <a href="#">Vasos de Plastico Irrompibles 100cc Moca</a>
+                                </li>
+                                <li className="old-price">1,84 €</li>
+                                <li className="discount-price">1,47 €</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div className="discount-details">
-                        <ul>
-                            <li className="item-name"><span className="discount-tag">10%</span>
-                                <a href="#">Vasos de Plastico Irrompibles 100cc Moca</a>
-                            </li>
-                            <li className="old-price">1,84 €</li>
-                            <li className="discount-price">1,47 €</li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="discount-container">
-                    <div className="discount-image">
-                        <a href="#"><img src="/images/discount-product.jpg" alt="" /></a>
-                    </div>
-                    <div className="discount-details">
-                        <ul>
-                            <li className="item-name"><span className="discount-tag">10%</span>
-                                <a href="#">Vasos de Plastico Irrompibles 100cc Moca</a>
-                            </li>
-                            <li className="old-price">1,84 €</li>
-                            <li className="discount-price">1,47 €</li>
-                        </ul>
-                    </div>
-                </div>
+
+                ))}
+
                 <p><a href="#">&gt;&gt; Todos los descuentos</a></p>
             </div>
 
@@ -102,8 +99,6 @@ class SideBar extends Component {
                     </ul>
                 </div>
             </div>
-
-
 
             <div className="information-sidebar">
                 <h2 className="aside-title">Información</h2>
@@ -126,9 +121,7 @@ class SideBar extends Component {
   componentDidMount () {
     this.props.fetch();
   }
-
 }
-
 
 const mapStateToProps = state => ({
     payload: state.sidebarReducer.payload,
