@@ -1,4 +1,4 @@
-import request from '../../Api'
+import request from '../../../Api'
 
 export default {
   fetchSidebar () {

@@ -5,13 +5,11 @@ import sidebarActions from './sidebarActions'
 
 class SideBar extends Component {
 
-    constructor() {
-        super();
-        this.state = { categories: [] };
-    }
+    render() {
+    const { payload, loading } = this.props
 
-  render() {
     return (
+
         <div className="sidebar">
 
             {/* Categories */}
@@ -19,13 +17,13 @@ class SideBar extends Component {
             <div className="categories-sidebar">
                 <h2 className="aside-title">Categorias</h2>
                         <ul className="aside-menu">
-                            {this.state.categories.map(category => (
+                            {payload.categories.map(category => (
                                 <li key={category.id}>
-                                    <Link to={`/category/${category.url}`}>{category.name}</Link>
+                                    <Link to={`/${category.url}`}>{category.name}</Link>
                                     <ul className="aside-sub-menu">
                                         {category.products.map(product => (
                                             <li>
-                                                <Link to={`/category/${category.url}/product/${product.url}`}>{product.name}</Link>
+                                                <Link to={`/${category.url}/${product.url}`}>{product.name}</Link>
                                             </li>
                                         ))}                                    
                                     </ul>
@@ -124,6 +122,21 @@ class SideBar extends Component {
     );
   }
 
+  componentDidMount () {
+    this.props.fetch();
+  }
+
 }
 
-export default SideBar;
+
+const mapStateToProps = state => ({
+    payload: state.sidebarReducer.payload,
+    loading: state.sidebarReducer.loading
+  })
+  
+  const mapDispatchToProps = dispatch => ({
+    fetch: () => dispatch(sidebarActions.fetch())
+  })
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(SideBar)
+  

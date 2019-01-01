@@ -4,8 +4,8 @@ import footerActions from './footerActions'
 import { Link } from 'react-router-dom';
  
 class Footer extends Component {
-  render() {
 
+  render() {
     const { payload, loading } = this.props
 
     return (
@@ -25,14 +25,11 @@ class Footer extends Component {
           <section className="footer-columns">
             <div className="footer-links">
               <h4>Categorias</h4>
-                {loading
-                  ? 'Loading categories..'
-                  : <ul>
-                  {payload.categories.map(
-                    (category) => <li key={category.id}><Link to={category.url}>{category.name}</Link></li>
-                  )}
-                </ul>
-                }
+                  <ul>
+                    {payload.categories.map(
+                      (category) => <li key={category.id}><Link to={category.url}>{category.name}</Link></li>
+                    )}
+                  </ul>
             </div>
             <div className="footer-links">
               <h4>Infomacion</h4>
@@ -82,9 +79,8 @@ class Footer extends Component {
   }
 
   componentDidMount () {
-    this.props.fetchFooter();
+    this.props.fetch();
   }
-
 }
 
 const mapStateToProps = state => ({
@@ -93,7 +89,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchFooter: () => dispatch(footerActions.fetchFooter())
+  fetch: () => dispatch(footerActions.fetch())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Footer)

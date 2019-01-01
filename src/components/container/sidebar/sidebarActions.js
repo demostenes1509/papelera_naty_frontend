@@ -1,16 +1,16 @@
 export const SidebarTypes = {
-    FETCH_SIDEBAR: 'FETCH_SIDEBAR',
-    FETCH_SIDEBAR_LOADING: 'FETCH_SIDEBAR_LOADING',
-    FETCH_SIDEBAR_SUCCESS: 'FETCH_SIDEBAR_SUCCESS',
+    FETCH: 'FETCH_SIDEBAR',
+    FETCH_LOADING: 'FETCH_SIDEBAR_LOADING',
+    FETCH_SUCCESS: 'FETCH_SIDEBAR_SUCCESS',
   }
   
-  const fetchSidebar = () => ({ type: SidebarTypes.FETCH_SIDEBAR })
-  const fetchSidebarLoading = () => ({ type: SidebarTypes.FETCH_SIDEBAR_LOADING })
-  const fetchSidebarSuccess = payload => ({ type: SidebarTypes.FETCH_SIDEBAR_SUCCESS, payload })
+  const fetch = () => ({ type: SidebarTypes.FETCH })
+  const fetchLoading = () => ({ type: SidebarTypes.FETCH_LOADING })
+  const fetchSuccess = payload => ({ type: SidebarTypes.FETCH_SUCCESS, payload })
   
   export default {
-    fetchSidebar,
-    fetchSidebarLoading,
-    fetchSidebarSuccess
+    fetch,
+    fetchLoading,
+    fetchSuccess
   }
   
