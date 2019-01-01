@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux'
 import footerActions from './footerActions'
 import { Link } from 'react-router-dom';
  
-class Footer extends Component {
+class Footer extends React.Component {
 
   render() {
     const { payload, loading } = this.props
