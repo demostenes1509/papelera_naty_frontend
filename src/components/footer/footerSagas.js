@@ -18,7 +18,7 @@ export default { watchFetchFooter }
 function * fetchFooter () {
   try {
     yield put(Actions.fetchLoading())
-    const response = yield call(FooterApi.fetchFooter)
+    const response = yield call(FooterApi.fetch)
 
     if (response.status === 200) {
       console.log('success - fetchFooter: ', response.data);

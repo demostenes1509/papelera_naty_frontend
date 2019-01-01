@@ -1,7 +1,7 @@
 import request from '../../Api'
 
 export default {
-  fetchFooter () {
+  fetch () {
     return request('footer', 'GET')
   }
 }

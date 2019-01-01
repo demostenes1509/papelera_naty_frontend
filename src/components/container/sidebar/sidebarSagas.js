@@ -18,7 +18,7 @@ export default { watchFetchSidebar }
 function * fetchSidebar () {
   try {
     yield put(Actions.fetchLoading())
-    const response = yield call(SidebarApi.fetchSidebar)
+    const response = yield call(SidebarApi.fetch)
 
     if (response.status === 200) {
       console.log('success - fetchSidebar: ', response.data);

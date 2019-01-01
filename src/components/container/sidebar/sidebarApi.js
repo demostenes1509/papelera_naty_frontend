@@ -1,7 +1,7 @@
 import request from '../../../Api'
 
 export default {
-  fetchSidebar () {
+  fetch () {
     return request('sidebar', 'GET')
   }
 }

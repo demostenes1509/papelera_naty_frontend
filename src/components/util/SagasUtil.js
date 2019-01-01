@@ -1,12 +1,13 @@
+import { call, put } from 'redux-saga/effects'
 
-function * fetchSidebar () {
+function * defaultFetch (actions,api) {
   try {
-    yield put(Actions.fetchSidebarLoading())
-    const response = yield call(SidebarApi.fetchSidebar)
+    yield put(actions.fetchLoading())
+    const response = yield call(api.fetch)
 
     if (response.status === 200) {
       console.log('success - fetchSidebar: ', response.data);
-      yield put(Actions.fetchSidebarSuccess(response.data))
+      yield put(actions.fetchSuccess(response.data))
     } else {
       // yield put(Actions.reviewLokalError(''))
       console.log('fetchSidebar fail: ', response)
@@ -18,5 +19,5 @@ function * fetchSidebar () {
 }
 
 export default {
-  fetchSidebar
+  defaultFetch
 }
