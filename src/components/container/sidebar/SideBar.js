@@ -8,8 +8,7 @@ class SideBar extends Component {
     render() {
     const { payload, loading } = this.props
 
-    console.log(payload.offers);
-
+    // console.log(payload.offers);
 
     return (
 
@@ -25,7 +24,7 @@ class SideBar extends Component {
                                 <Link to={`/${category.url}`}>{category.name}</Link>
                                 <ul className="aside-sub-menu">
                                     {category.products.map(product => (
-                                        <li>
+                                        <li key={product.id}>
                                             <Link to={`/${category.url}/${product.url}`}>{product.name}</Link>
                                         </li>
                                     ))}                                    
@@ -65,7 +64,7 @@ class SideBar extends Component {
 
 
                 {payload.offers.map(offer => (
-                    <div className="discount-container ">
+                    <div key={offer.id} className="discount-container ">
                         <div className="discount-image">
                             <Link to={`/${offer.category.url}/${offer.url}`}>
                                 <img src="/images/discount-product.jpg" alt="" />

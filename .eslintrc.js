@@ -210,6 +210,7 @@ module.exports = {
             }
         ],
         "no-unused-expressions": "off",
+        "no-unused-vars": "off",
         "no-use-before-define": "off",
         "no-useless-call": "off",
         "no-useless-catch": "off",
