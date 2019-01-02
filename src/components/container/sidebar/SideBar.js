@@ -5,6 +5,11 @@ import sidebarActions from './sidebarActions'
 
 class SideBar extends Component {
 
+    constructor(props) {
+        super(props);
+        console.log('CONSTRUYENDO SIDEBAR');
+    }
+
     render() {
     const { payload, loading } = this.props
 
