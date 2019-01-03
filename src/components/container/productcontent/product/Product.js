@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Product extends Component {
   render() {
     return (
-			<div classNameName="product-detail">
+			<div className="product-detail">
 				<section className="product-image-col">
 					<div className="product-image-container">
 						<a href=""><img src="/images/main-product-img.png" /></a>

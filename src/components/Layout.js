@@ -12,7 +12,7 @@ const Layout = ({ components: Components, ...rest }) => (
             <ErrorBar />
             <NavigationBar />
             <section className="container">
-                {Components.map(Component => (
+                {Components.map((Component,i) => (
                     <Component />
                 ))}  
             </section>
