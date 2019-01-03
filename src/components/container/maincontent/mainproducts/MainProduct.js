@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 class MainProduct extends Component {
   render() {
     return (
-			<section className="main-product">
-
+			<>
 					<Link to="/product">
 						<img className="main-product-image" src="/images/product-img1.jpg" alt=""/>
 					</Link>
@@ -15,9 +14,7 @@ class MainProduct extends Component {
 						<p><span className="price-con">1,25€</span> con IVA</p>
 						<p>1,25€ sin IVA</p>
 					</div>
-
-
-			</section>			
+			</>			
     );
   }
 }

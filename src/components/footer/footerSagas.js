@@ -6,7 +6,6 @@ import {defaultFetch} from '../util/SagasUtil'
 const watchFetchFooter = function *() {
   while (true) {
     yield take(FooterTypes.FETCH)
-    // yield fork(fetchFooter)
     yield fork(() => defaultFetch(Actions,FooterApi))
   }
 }
