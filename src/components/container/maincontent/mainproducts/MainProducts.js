@@ -28,6 +28,7 @@ class MainProducts extends Component {
 	}
 	
 	componentDidMount() {
+		console.log('en Mount con:'+this.props.location.pathname);
 		this.props.fetch(this.props.location.pathname);
 	}
 
