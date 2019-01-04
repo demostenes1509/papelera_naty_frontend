@@ -6,8 +6,8 @@ import {defaultFetch} from '../../../util/SagasUtil'
 /* --------------------- Watchers ------------------ */
 const watchFetchMainProducts = function *() {
   while (true) {
-    yield take(MainProductsTypes.FETCH)
-    yield fork(() => defaultFetch(Actions,MainProductsApi))
+    const { path } = yield take(MainProductsTypes.FETCH)
+    yield fork(() => defaultFetch(Actions, MainProductsApi, path))
   }
 }
 

@@ -3,9 +3,9 @@ import ReducerUtil from '../../../util/ReducerUtil'
 
 const initialState = {
   loading: false,
-  payload: { offers: [] }
+  payload: { products: [] }
 }
 
 export default (state = initialState, action) => {
-  return ReducerUtil.defaultFetch(initialState,state,action, MainProductsTypes);
+  return ReducerUtil.defaultFetch(initialState, state, action, MainProductsTypes);
 }

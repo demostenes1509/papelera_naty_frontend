@@ -1,11 +1,11 @@
 import { call, put } from 'redux-saga/effects'
 import co from 'co'
 
-export function *defaultFetch(actions,api) {
+export function *defaultFetch(actions,api,path=null) {
 
   try {
     yield put(actions.fetchLoading())
-    const response = yield call(api.fetch)
+    const response = yield call(() => api.fetch(path))
 
     if (response.status === 200) {
       // console.log('success - fetchSidebar: ', response.data);

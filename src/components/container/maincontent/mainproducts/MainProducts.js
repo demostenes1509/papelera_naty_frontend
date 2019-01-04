@@ -16,26 +16,12 @@ class MainProducts extends Component {
 					<h2 className="main-title">Productos destacados</h2>
 					<div className="main-products-list">
 
-					{payload.offers.map(offer => (
-						<section key={offer.id} className="main-product">
+					{payload.products.map(product => (
+						<section key={product.id} className="main-product">
 							<MainProduct />
 						</section>
 
 					))}
-
-
-						{/* <MainProduct />
-						<MainProduct />
-						<MainProduct />
-						<MainProduct />
-						<MainProduct />
-						<MainProduct />
-						<MainProduct />
-						<MainProduct />
-						<MainProduct />
-						<MainProduct />
-						<MainProduct />
-						<MainProduct /> */}
 					</div>
 			</div>			
 		);
