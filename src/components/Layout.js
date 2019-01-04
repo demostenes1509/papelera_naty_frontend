@@ -13,7 +13,7 @@ const Layout = ({ components: Components, ...rest }) => (
             <NavigationBar />
             <section className="container">
                 {Components.map((Component,i) => (
-                    <Component />
+                    <Component key={i}/>
                 ))}  
             </section>
             <Footer />

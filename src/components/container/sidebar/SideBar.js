@@ -8,6 +8,8 @@ class SideBar extends Component {
     render() {
         const { payload, loading } = this.props
 
+        console.log('CONSTRUCTOR SIDEBAR');
+
         return (
 
             <div className="sidebar">

@@ -7,6 +7,7 @@ import MainContent from './components/container/maincontent/MainContent';
 import ProductContent from './components/container/productcontent/ProductContent';
 
 class App extends Component {
+
   render() {
     return (
       <Router>

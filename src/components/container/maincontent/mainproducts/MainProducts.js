@@ -9,7 +9,7 @@ class MainProducts extends Component {
   render() {
 
 	const { payload, loading } = this.props
-	console.log(this.props);
+	// console.log(this.props);
 
     return (
 			<div className="main-products">
@@ -29,6 +29,12 @@ class MainProducts extends Component {
 	
 	componentDidMount() {
 		this.props.fetch(this.props.location.pathname);
+	}
+
+	componentWillReceiveProps(nextprops) {
+		if(this.props.location.pathname!=nextprops.location.pathname) {
+			this.props.fetch(nextprops.location.pathname);
+		}
 	}
 
 }
