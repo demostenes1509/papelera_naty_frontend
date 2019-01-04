@@ -32,7 +32,7 @@ class MainProducts extends Component {
 	}
 
 	componentWillReceiveProps(nextprops) {
-		if(this.props.location.pathname!=nextprops.location.pathname) {
+		if(this.props.location.pathname!==nextprops.location.pathname) {
 			this.props.fetch(nextprops.location.pathname);
 		}
 	}

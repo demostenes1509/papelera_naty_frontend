@@ -1,5 +1,4 @@
 import { call, put } from 'redux-saga/effects'
-import co from 'co'
 
 export function *defaultFetch(actions,api,path=null) {
 

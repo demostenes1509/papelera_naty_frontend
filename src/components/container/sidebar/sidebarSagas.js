@@ -1,4 +1,4 @@
-import { call, fork, put, take } from 'redux-saga/effects'
+import { fork, take } from 'redux-saga/effects'
 import Actions, { SidebarTypes } from './sidebarActions'
 import SidebarApi from './sidebarApi'
 import {defaultFetch} from '../../util/SagasUtil'

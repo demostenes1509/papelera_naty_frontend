@@ -6,19 +6,19 @@ import NavigationBar from './navigationbar/NavigationBar';
 import Footer from './footer/Footer';
 
 const Layout = ({ components: Components, ...rest }) => (
-    <Route {...rest} render={props => (
-        <main>
-            <Header />
-            <ErrorBar />
-            <NavigationBar />
-            <section className="container">
-                {Components.map((Component,i) => (
-                    <Component key={i}/>
-                ))}  
-            </section>
-            <Footer />
-        </main>
-    )}/>
-  );
+	<Route {...rest} render={props => (
+		<main>
+			<Header />
+			<ErrorBar />
+			<NavigationBar />
+			<section className="container">
+				{Components.map((Component, i) => (
+					<Component key={i} />
+				))}
+			</section>
+			<Footer />
+		</main>
+	)} />
+);
 
-  export default Layout;  
+export default Layout;  
