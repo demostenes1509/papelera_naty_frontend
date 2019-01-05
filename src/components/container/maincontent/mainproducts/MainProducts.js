@@ -13,7 +13,7 @@ class MainProducts extends Component {
 
     return (
 			<div className="main-products">
-					<h2 className="main-title">Productos destacados</h2>
+					<h2 className="main-title">{payload.title}</h2>
 					<div className="main-products-list">
 
 					{payload.products.map(product => (
