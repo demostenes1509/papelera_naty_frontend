@@ -17,15 +17,26 @@ h2.main-title {
 }
 
 .main-product-title {
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .main-product-description {
-  font-size: 13px;
+  font-size: 16px;
   line-height: 16px;
 }
 
 .main-product-image {
   width: 100%;
 
+}
+
+.product-prices p {
+  margin: 0px 0;
+  font-size: 12px;
+  text-align: left;
+}
+
+.product-prices p span.price-con {
+  font-weight: 600;
+  font-size: 13px;
 }

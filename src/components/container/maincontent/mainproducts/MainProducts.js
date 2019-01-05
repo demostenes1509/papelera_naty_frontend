@@ -18,7 +18,7 @@ class MainProducts extends Component {
 
 					{payload.products.map(product => (
 						<section key={product.id} className="main-product">
-							<MainProduct />
+							<MainProduct product={product}/>
 						</section>
 
 					))}

@@ -253,6 +253,7 @@ button.search-btn {
 .sidebar .contact-sidebar .contact-details ul li.aside-email {
   background: url("/images/email-icon.png") no-repeat left center;
 }
+
 .slider-btn-container {
   text-align: center;
 }
@@ -291,16 +292,27 @@ h2.main-title {
 }
 
 .main-product-title {
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .main-product-description {
-  font-size: 13px;
+  font-size: 16px;
   line-height: 16px;
 }
 
 .main-product-image {
   width: 100%;
+}
+
+.product-prices p {
+  margin: 0px 0;
+  font-size: 12px;
+  text-align: left;
+}
+
+.product-prices p span.price-con {
+  font-weight: 600;
+  font-size: 13px;
 }
 
 .authentication {
@@ -431,7 +443,6 @@ a.add-to-basket {
   padding: 6px 14px;
   font-weight: 500;
   background: #0c6be8;
-  float: right;
   display: inline-block;
   margin: 6px 0 0;
 }
