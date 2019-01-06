@@ -1,7 +1,7 @@
 import { fork, take } from 'redux-saga/effects'
 import Actions, { MainProductsTypes } from './mainProductsActions'
 import MainProductsApi from './mainProductsApi'
-import {defaultFetch} from '../../../util/SagasUtil'
+import {defaultFetch} from 'components/util/SagasUtil'
 
 /* --------------------- Watchers ------------------ */
 const watchFetchMainProducts = function *() {
