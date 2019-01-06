@@ -18,7 +18,7 @@ class Footer extends React.Component {
                 <input type="text" placeholder="su email" /><button className="subscribe-btn">Enviar</button>
               </div>
               <div className="subscribe-checkbox">
-                <input type="checkbox" /><span>He leido y estoy conforme con la <a href="#">Politica de proteccion de Datos</a></span>
+                <input type="checkbox" /><span>He leido y estoy conforme con la <Link to='/data-protection'>Política de protección de Datos</Link></span>
               </div>
             </div>
           </section>
@@ -32,43 +32,39 @@ class Footer extends React.Component {
                   </ul>
             </div>
             <div className="footer-links">
-              <h4>Infomacion</h4>
+              <h4>Información</h4>
               <ul>
-                <li><a href="#">Contacte con nostros</a></li>
-                <li><a href="#">Envios y Devoluciones</a></li>
-                <li><a href="#">Quienes somos</a></li>
-                <li><a href="#">Avisio legal</a></li>
-                <li><a href="#">Condiciones generales</a></li>
-                <li><a href="#">Formas de pago</a></li>
-                <li><a href="#">Proteccion de datos</a></li>
-                <li><a href="#">Politica de Cookies</a></li>
-                <li><a href="#">Descuentos</a></li>
-                <li><a href="#">Preguntas Frecuentes</a></li>
-                <li><a href="#">Mapa del sitito</a></li>
+                <li><Link to='/contact'>Contacte con nosotros</Link></li>
+                <li><Link to='/envios-y-devoluciones'>Envíos y Devoluciones</Link></li>
+                <li><Link to='/quienes-somos'>Quienes somos</Link></li>
+                <li><Link to='/aviso-legal'>Aviso legal</Link></li>
+                <li><Link to='/condiciones-generales'>Condiciones generales</Link></li>
+                <li><Link to='/formas-pago'>Formas de pago</Link></li>
+                <li><Link to='/proteccion-datos'>Protección de datos</Link></li>
+                <li><Link to='/politica-cookies'>Política de cookies</Link></li>
+                <li><Link to='/preguntas-frecuentes'>Preguntas Frecuentes</Link></li>
+                <li><Link to='/site-map'>Mapa del sitio</Link></li>
               </ul>
             </div>
             <div className="footer-links">
               <h4>Mi Cuenta</h4>
               <ul>
-                <li><a href="#">Mis pedidos</a></li>
-                <li><a href="#">Mis vales descuento</a></li>
-                <li><a href="#">Mis direcciones</a></li>
-                <li><a href="#">Mis datos presonales</a></li>
+                <li><Link to="/">Mis datos personales</Link></li>                
               </ul>
             </div>
             <div className="footer-links">
               <h4>Contacte Con Nosotros</h4>
               <ul>
-                <li><a href="#">PlasticoMania.com</a></li>
-                <li><a href="#">Tel: 34 644 319 409</a></li>
-                <li><a href="#">Email: info@plasticomania.com</a></li>
+                <li><Link to="/">Papelera Naty</Link></li>
+                <li><Link to="/">Whatsapp: 011 5888 3335</Link></li>
+                <li><Link to="/">Email: naty@papeleranaty.com</Link></li>
               </ul>
             </div>
             <div className="footer-links">
               <h4>Siguenos</h4>
               <ul className="social-links">
-                <li><a href="#"><img src="images/fb-icon.png" /></a></li>
-                <li><a href="#"><img src="images/twitter-icon.png" /></a></li>
+                <li><Link to="http://facebook.naty"><img src="images/fb-icon.png" /></Link></li>
+                <li><Link to="http://twitter.naty"><img src="images/twitter-icon.png" /></Link></li>
               </ul>
             </div>
           </section>

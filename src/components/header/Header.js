@@ -15,9 +15,9 @@ class Header extends Component {
 					<img src='/images/header-image.png' alt='ni idea 2' />
 				</div>
 				<div className="header-details">
-					<a href="/contact">Contacto</a>
+					<Link to="/contact">Contacto</Link>
 					<div className="cart-box">
-						<a className="header-cart" href="/shopping-cart">Carrito:vacío</a>
+						<Link to="/shopping-cart" className="header-cart">Carrito:vacío</Link>
 					</div>
 					<Link to="/login">Inicio de Sesión</Link>
 				</div>

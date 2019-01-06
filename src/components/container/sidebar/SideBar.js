@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
+import { PropagateLoader } from 'react-spinners';
 import sidebarActions from './sidebarActions'
 
 class SideBar extends Component {
@@ -17,6 +18,15 @@ class SideBar extends Component {
 				<div className="categories-sidebar">
 					<h2 className="aside-title">Categorias</h2>
 					<ul className="aside-menu">
+
+					<PropagateLoader
+										// css={override}
+										sizeUnit={"px"}
+										size={10}
+										color={'#005bbb'}
+										loading={loading}
+									/>
+
 						{payload.categories.map(category => (
 							<li key={category.id}>
 								<Link to={`/${category.url}`}>{category.name}</Link>
@@ -91,8 +101,12 @@ class SideBar extends Component {
 					<h2 className="aside-title">Contactar</h2>
 					<div className="contact-details">
 						<ul>
-							<li className="aside-tel"><a href="#">011 5888 3335</a></li>
-							<li className="aside-email"><a href="#">naty@papeleranaty.com</a></li>
+							<li className="aside-tel">
+								<Link to="/">011 5888 3335</Link>
+							</li>
+							<li className="aside-email">
+								<Link to="/">naty@papeleranaty.com</Link>
+							</li>
 						</ul>
 					</div>
 				</div>

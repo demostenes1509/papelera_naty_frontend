@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class NavigationBar extends Component {
   render() {
@@ -6,22 +7,21 @@ class NavigationBar extends Component {
       <section className="navigation-bar">
 
         <ul className="main-nav">
-          <li><a href="#" className="sub-menu-item">Inicio</a>
+          <li>
+            <Link to="/" className="sub-menu-item">Inicio</Link>
             <ul className="sub-menu-list">
-              <li><a href="#">List item 1</a></li>
-              <li><a href="#">List item 2</a></li>
-              <li><a href="#">List item 3</a></li>
-              <li><a href="#">List item 4</a></li>
-              <li><a href="#">List item 5</a></li>
-              <li><a href="#">List item 6</a></li>
-              <li><a href="#">List item 7</a></li>
-              <li><a href="#">List item 8</a></li>
+              <li><Link to="/">List Item 1</Link></li>
+              <li><Link to="/">List Item 2</Link></li>
+              <li><Link to="/">List Item 3</Link></li>
+              <li><Link to="/">List Item 4</Link></li>
+              <li><Link to="/">List Item 5</Link></li>
+              <li><Link to="/">List Item 6</Link></li>
             </ul>
           </li>
-          <li><a href="#">Mi Cuenta</a></li>
-          <li><a href="#">Contacto</a></li>
-          <li><a href="#">Descuentos</a></li>
-          <li><a href="#">Carrito</a></li>
+          <li><Link to="/">Mi Cuenta</Link></li>
+          <li><Link to="/">Contacto</Link></li>
+          <li><Link to="/">Descuentos</Link></li>
+          <li><Link to="/">Carrito</Link></li>
           <li className="main-search"><input type="text" className="search-input"/><button className="search-btn">Search</button></li>
         </ul>
 

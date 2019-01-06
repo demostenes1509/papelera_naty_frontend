@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class ExistingCustomer extends Component {
 	render() {
@@ -12,7 +13,7 @@ class ExistingCustomer extends Component {
 					<label>Contrasena<span className="form-error">Required</span></label>
 					<div className="hideShowPassword-wrapper" >
 						<input type="password" className="customer-password hideShowPassword-field" name="password" />
-						<button type="button" role="button" aria-label="Show Password" tabIndex="0" className="hideShowPassword-toggle hideShowPassword-toggle-show" aria-pressed="false" >Show</button>
+						<button aria-label="Show Password" tabIndex="0" className="hideShowPassword-toggle hideShowPassword-toggle-show" aria-pressed="false" >Show</button>
 					</div>
 					<label className="form-check">This is a checkbox<input type="checkbox" className="form-check" /></label>
 					<label className="form-check">This is a checkbox<input type="checkbox" /></label>
@@ -32,8 +33,9 @@ class ExistingCustomer extends Component {
 							<option>Option 4</option>
 						</select>
 					</label>
-					<a href="#" className="forgot-password">Ha olvidado su contrasena?</a>
-					<button type="button" className="form-btn">Autentificacion</button>
+					
+					<Link to="/forget-password" className="forgot-password">Ha olvidado su contraseña ?</Link>
+					<button className="form-btn">Autentificacion</button>
 				</form>
 			</div>
 		);
