@@ -7,9 +7,12 @@ import sidebarActions from './sidebarActions'
 class SideBar extends Component {
 
 	render() {
-		const { payload, loading } = this.props
+		const { payload, loading, error } = this.props;
+		console.log('MAXITO:'+error);
+		console.log(JSON.stringify(error));
 
 		return (
+
 
 			<div className="sidebar">
 
@@ -19,13 +22,14 @@ class SideBar extends Component {
 					<h2 className="aside-title">Categorias</h2>
 					<ul className="aside-menu">
 
-					<PropagateLoader
-										// css={override}
-										sizeUnit={"px"}
-										size={10}
-										color={'#005bbb'}
-										loading={loading}
-									/>
+						{error?<p>{error.message}</p>:''}
+
+						<PropagateLoader
+											sizeUnit={"px"}
+											size={10}
+											color={'#005bbb'}
+											loading={loading}
+										/>
 
 						{payload.categories.map(category => (
 							<li key={category.id}>
@@ -136,7 +140,8 @@ class SideBar extends Component {
 
 const mapStateToProps = state => ({
 	payload: state.sidebarReducer.payload,
-	loading: state.sidebarReducer.loading
+	loading: state.sidebarReducer.loading,
+	error: state.sidebarReducer.error
 })
 
 const mapDispatchToProps = dispatch => ({
