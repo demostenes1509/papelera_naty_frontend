@@ -47,7 +47,9 @@ class NavigationBar extends Component {
             <li><Link to="/">Descuentos</Link></li>
             <li><Link to="/">Carrito</Link></li>
             <li className="main-search">
-              <input type="text" className="search-input" placeholder="Ingrese búsqueda ( más de dos caracteres )"
+              <input type="text"
+                value={this.state.query}
+                className="search-input" placeholder="Ingrese búsqueda ( más de dos caracteres )"
                 onChange={event => {this.setState({query: event.target.value})}}
                 onKeyPress={this.onKeyPress}/>
               <button className="search-btn">Search</button>
@@ -58,6 +60,13 @@ class NavigationBar extends Component {
       </section>
     );
   }
+
+  componentDidMount() {
+    const { search } = this.props.match.params;
+    if(search) {
+      this.setState({query: search});
+    }
+	}
 }
 
 export default withRouter(NavigationBar);
