@@ -1,8 +1,31 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class NavigationBar extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      query: ''
+    }
+    this.onKeyPress = this.onKeyPress.bind(this);
+}
+
+  onKeyPress(event) {
+    const { history } = this.props;
+    if (event.key === 'Enter') {
+      if(this.state.query.length>1) {
+        history.push({
+          pathname: '/search/'+this.state.query
+          });
+      }
+    }
+  }
+
   render() {
+
+    const { history } = this.props;
+
     return (
       <section className="navigation-bar">
         <div className="navigation-bar-1"></div>
@@ -24,13 +47,9 @@ class NavigationBar extends Component {
             <li><Link to="/">Descuentos</Link></li>
             <li><Link to="/">Carrito</Link></li>
             <li className="main-search">
-              <input type="text" className="search-input"
+              <input type="text" className="search-input" placeholder="Ingrese búsqueda ( más de dos caracteres )"
                 onChange={event => {this.setState({query: event.target.value})}}
-                onKeyPress={event => {
-                  if (event.key === 'Enter') {
-                    // this.search()
-                  }
-                }}/>
+                onKeyPress={this.onKeyPress}/>
               <button className="search-btn">Search</button>
             </li>
           </ul>
@@ -41,4 +60,4 @@ class NavigationBar extends Component {
   }
 }
 
-export default NavigationBar;
+export default withRouter(NavigationBar);
