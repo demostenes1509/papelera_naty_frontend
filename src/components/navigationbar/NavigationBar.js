@@ -23,7 +23,16 @@ class NavigationBar extends Component {
             <li><Link to="/">Contacto</Link></li>
             <li><Link to="/">Descuentos</Link></li>
             <li><Link to="/">Carrito</Link></li>
-            <li className="main-search"><input type="text" className="search-input"/><button className="search-btn">Search</button></li>
+            <li className="main-search">
+              <input type="text" className="search-input"
+                onChange={event => {this.setState({query: event.target.value})}}
+                onKeyPress={event => {
+                  if (event.key === 'Enter') {
+                    // this.search()
+                  }
+                }}/>
+              <button className="search-btn">Search</button>
+            </li>
           </ul>
         </div>
         <div className="navigation-bar-3"></div>

@@ -8,21 +8,18 @@ class SideBar extends Component {
 
 	render() {
 		const { payload, loading, error } = this.props;
-		console.log('MAXITO:'+error);
-		console.log(JSON.stringify(error));
 
 		return (
-
 
 			<div className="sidebar">
 
 				{/* Categories */}
 
 				<div className="categories-sidebar">
-					<h2 className="aside-title">Categorias</h2>
+					<h2 className="aside-title">Categorías</h2>
 					<ul className="aside-menu">
 
-						{error?<p>{error.message}</p>:''}
+						{error?<p className="sidebar-error-message">{error.message}</p>:''}
 
 						<PropagateLoader
 											sizeUnit={"px"}

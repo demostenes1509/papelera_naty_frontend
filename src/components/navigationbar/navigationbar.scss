@@ -79,21 +79,21 @@ li.main-search input[type=text] {
   border: none;
   margin: 0;
   padding: 7px;
-  height: 22px;
+  height: 24px;
   -webkit-border-radius: 6px;
   border-radius: 6px;
   width: 446px;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 button.search-btn {
   border: none;
   background: url('/images/search-icon.png') no-repeat center center;
   text-indent: -9999px;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   display: inline-block;
-  margin: 7px;
+  // margin: 7px;
 }
 
 
