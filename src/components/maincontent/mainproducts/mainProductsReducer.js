@@ -1,9 +1,10 @@
 import { MainProductsTypes } from './mainProductsActions'
-import ReducerUtil from '../../../util/ReducerUtil'
+import ReducerUtil from '../../util/ReducerUtil'
 
 const initialState = {
   loading: false,
-  payload: { products: [] }
+  payload: { products: [] },
+  error: null
 }
 
 export default (state = initialState, action) => {

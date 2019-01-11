@@ -3,11 +3,6 @@ import { Link } from 'react-router-dom';
 
 class MainProduct extends Component {
 
-	// constructor(props) {
-	// 	super(props);
-	// 	console.log(props);
-	// }
-	
   render() {
 		const { product } = this.props
     return (

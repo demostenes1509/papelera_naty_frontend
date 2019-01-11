@@ -7,7 +7,7 @@ import sidebarActions from './sidebarActions'
 class SideBar extends Component {
 
 	render() {
-		const { payload, loading } = this.props
+		const { payload, loading, error } = this.props;
 
 		return (
 
@@ -16,16 +16,17 @@ class SideBar extends Component {
 				{/* Categories */}
 
 				<div className="categories-sidebar">
-					<h2 className="aside-title">Categorias</h2>
+					<h2 className="aside-title">Categorías</h2>
 					<ul className="aside-menu">
 
-					<PropagateLoader
-										// css={override}
-										sizeUnit={"px"}
-										size={10}
-										color={'#005bbb'}
-										loading={loading}
-									/>
+						{error?<p className="sidebar-error-message">{error.message}</p>:''}
+
+						<PropagateLoader
+											sizeUnit={"px"}
+											size={10}
+											color={'#005bbb'}
+											loading={loading}
+										/>
 
 						{payload.categories.map(category => (
 							<li key={category.id}>
@@ -136,7 +137,8 @@ class SideBar extends Component {
 
 const mapStateToProps = state => ({
 	payload: state.sidebarReducer.payload,
-	loading: state.sidebarReducer.loading
+	loading: state.sidebarReducer.loading,
+	error: state.sidebarReducer.error
 })
 
 const mapDispatchToProps = dispatch => ({

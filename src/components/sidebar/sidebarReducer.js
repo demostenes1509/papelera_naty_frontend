@@ -1,9 +1,10 @@
 import { SidebarTypes } from './sidebarActions'
-import ReducerUtil from '../../util/ReducerUtil'
+import ReducerUtil from 'components/util/ReducerUtil'
 
 const initialState = {
   loading: false,
-  payload: { categories: [], offers: [] }
+  payload: { categories: [], offers: [] },
+  error: null
 }
 
 export default (state = initialState, action) => {

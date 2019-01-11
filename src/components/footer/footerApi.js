@@ -1,4 +1,4 @@
-import request from '../../Api'
+import request from 'components/util/ApiUtil'
 
 export default {
   fetch () {

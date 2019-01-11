@@ -1,9 +1,30 @@
 .navigation-bar {
-  background: url("/images/main-nav-bg.png") no-repeat center center;
   height: 65px;
-  width: 79%;
-  margin: 2px 0 0 -16px;
+  width: 102%;
+  margin: 2px 0 0 -17px;
+  display:flex;
 } 
+
+.navigation-bar-1 {
+  background: url("/images/main-nav-bg-0.png") no-repeat center center;
+  height: 65px;
+  width: 30px;
+}
+
+.navigation-bar-2 {
+  background-color: #0C6BE8;
+  height: 52px;
+  width: 100%;
+  margin-top: 2px;
+
+}
+
+.navigation-bar-3 {
+  background: url("/images/main-nav-bg-2.png") no-repeat center center;
+  height: 65px;
+  width: 25px;
+}
+
 
 .main-nav {
   margin: 0;
@@ -13,7 +34,7 @@
 
 .main-nav > li {
   display: inline;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 53px;
   margin: 0 16px 0 0;
 }
@@ -46,28 +67,33 @@ ul.main-nav li.main-search {
   -webkit-border-radius: 6px;
   border-radius: 6px;
   line-height: 0;
-  margin: 9px;
-  width: 338px;
+  margin-left: 9px;
+  margin-right: 9px;
+  margin-top: 4px;
+  margin-bottom: 9px;
+  width: 500px;
+  height: 38px;
 }
 
 li.main-search input[type=text] {
   border: none;
   margin: 0;
   padding: 7px;
-  height: 20px;
+  height: 24px;
   -webkit-border-radius: 6px;
   border-radius: 6px;
+  width: 446px;
+  font-size: 20px;
 }
 
 button.search-btn {
   border: none;
   background: url('/images/search-icon.png') no-repeat center center;
   text-indent: -9999px;
-  width: 20px;
-  height: 20px;
-  float: right;
+  width: 30px;
+  height: 30px;
   display: inline-block;
-  margin: 7px;
+  // margin: 7px;
 }
 
 

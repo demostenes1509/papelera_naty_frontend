@@ -2,11 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux'
 import footerActions from './footerActions'
 import { Link } from 'react-router-dom';
+import { PropagateLoader } from 'react-spinners';
  
 class Footer extends React.Component {
 
   render() {
-    const { payload, loading } = this.props
+    const { payload, loading, error } = this.props
 
     return (
 
@@ -26,6 +27,16 @@ class Footer extends React.Component {
             <div className="footer-links">
               <h4>Categorias</h4>
                   <ul>
+
+                    {error?<p className="footer-error-message">{error.message}</p>:''}
+
+                    <PropagateLoader
+                            sizeUnit={"px"}
+                            size={10}
+                            color={'white'}
+                            loading={loading}
+                          />
+
                     {payload.categories.map(
                       (category) => <li key={category.id}><Link to={category.url}>{category.name}</Link></li>
                     )}
@@ -81,7 +92,8 @@ class Footer extends React.Component {
 
 const mapStateToProps = state => ({
   payload: state.footerReducer.payload,
-  loading: state.footerReducer.loading
+  loading: state.footerReducer.loading,
+  error: state.footerReducer.error
 })
 
 const mapDispatchToProps = dispatch => ({

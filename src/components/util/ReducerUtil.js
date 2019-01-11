@@ -5,12 +5,20 @@ const defaultFetch = (initialState, state, action, types) => {
     case types.FETCH:
       return {
         loading: true,
-        payload: initialState.payload
+        payload: initialState.payload,
+        error: null
       }
     case types.FETCH_SUCCESS:
       return {
         loading: false,
-        payload: action.payload
+        payload: action.payload,
+        error: null
+      }
+    case types.FETCH_ERROR:
+      return {
+        loading: false,
+        error: action.error,
+        payload: initialState.payload
       }
     default:
       return state
