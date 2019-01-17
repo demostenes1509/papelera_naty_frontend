@@ -8,7 +8,8 @@ class MainProduct extends Component {
     return (
 			<>
 					<Link to={`/${product.category.url}/${product.url}`}>
-						<img className="main-product-image" src="/images/product-img1.jpg" alt=""/>
+						{/* <img className="main-product-image" src="/images/product-img1.jpg" alt=""/> */}
+						<ProductPicture pictures={product.productspictures}/>
 					</Link>
 					<h3 className="main-product-title">
 						<Link to={`/${product.category.url}/${product.url}`}>{product.name}</Link>
@@ -16,20 +17,27 @@ class MainProduct extends Component {
 					<p className="main-product-description">
 						<Link to={`/${product.category.url}/${product.url}`}>{product.description}</Link>
 					</p>
-					<ProductsFormats formats={product.productsformats}/>
+					{product.productsformats && product.productsformats.length>0 &&
+						<ProductsFormats formats={product.productsformats}/>
+					}
 			</>			
     );
 	}
 }
 
-const ProductsFormats = (props) => {
-	if(props.formats && props.formats.length>0) {
-		return <div className="product-prices">
-			<p dangerouslySetInnerHTML={{__html: props.formats[0].retaildescription}}></p>
-			<p dangerouslySetInnerHTML={{__html: props.formats[0].wholesaledescription}}></p>
-		</div>;
+const ProductsFormats = ({formats}) => (
+	<div className="product-prices">
+		<p dangerouslySetInnerHTML={{__html: formats[0].retaildescription}}></p>
+		<p dangerouslySetInnerHTML={{__html: formats[0].wholesaledescription}}></p>
+	</div>
+)
+
+const ProductPicture = (props) => {
+	if(props.pictures && props.pictures.length>0) {
+		const picture=props.pictures[0];
+		return <img className="main-product-image" src={`/productspictures/${picture.id}`} alt=""/>
 	}
-	return <></>;
+	return <img className="main-product-image" src={`/productspictures/0`} alt=""/>
 }
 
 

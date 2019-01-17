@@ -4,17 +4,17 @@ import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga'
 import 'styles/styles.css';
 import App from './App';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware,compose } from 'redux';
 import * as serviceWorker from 'serviceWorker';
 import reducers from 'Reducers';
 import sagas from 'Sagas';
 
 const sagaMiddleware = createSagaMiddleware();
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const store = createStore(
     reducers,
-    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-    applyMiddleware(sagaMiddleware)
+    composeEnhancer(applyMiddleware(sagaMiddleware))
 );
   
 // then run the saga
