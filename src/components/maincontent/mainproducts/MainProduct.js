@@ -32,12 +32,11 @@ const ProductsFormats = ({formats}) => (
 	</div>
 )
 
-const ProductPicture = (props) => {
-	if(props.pictures && props.pictures.length>0) {
-		const picture=props.pictures[0];
-		return <img className="main-product-image" src={`/productspictures/${picture.id}`} alt=""/>
+const ProductPicture = ({pictures}) => {
+	if(pictures && pictures.length>0) {
+		return <img className="main-product-image" src={`http://localhost:3001/productspictures/${pictures[0].id}`} alt=""/>
 	}
-	return <img className="main-product-image" src={`/productspictures/0`} alt=""/>
+	return <img className="main-product-image" src={`http://localhost:3001/productspictures/0`} alt=""/>
 }
 
 
