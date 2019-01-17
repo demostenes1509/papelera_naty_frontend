@@ -1,5 +1,5 @@
 import { MainProductsTypes } from './mainProductsActions'
-import ReducerUtil from '../../util/ReducerUtil'
+import ReducerUtil from 'components/util/ReducerUtil'
 
 const initialState = {
   loading: false,

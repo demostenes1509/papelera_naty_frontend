@@ -25,6 +25,34 @@ const defaultFetch = (initialState, state, action, types) => {
   }
 };
 
+const defaultPost = (initialState, state, action, types) => {
+
+  switch(action.type) {
+    case types.POST:
+      return {
+        waiting: true,
+        request: initialState.request,
+        response: initialState.response,
+        error: null
+      }
+    case types.POST_SUCCESS:
+      return {
+        waiting: false,
+        response: action.response,
+        error: null
+      }
+    case types.POST_ERROR:
+      return {
+        waiting: false,
+        error: action.error,
+        response: {}
+      }
+    default:
+      return state
+  }
+};
+
 export default {
-  defaultFetch
+  defaultFetch,
+  defaultPost
 }

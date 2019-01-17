@@ -6,7 +6,7 @@ const client = axios.create({
   timeout: 3000
 })
 
-export default (url, method ) => {
+export default (url, method, data ) => {
 
   const token=localStorage.getItem(TOKEN_NAME);
   const headers = {};
@@ -14,5 +14,5 @@ export default (url, method ) => {
     headers[AUTHORIZATION] = `Bearer ${token}`;
   }
 
-  return client.request({ url, method, headers });
+  return client.request({ url, method, headers, data });
 }
