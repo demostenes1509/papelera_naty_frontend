@@ -6,13 +6,13 @@ import ExistingCustomer from './existingcustomer/ExistingCustomer';
 class Authentication extends Component {
   render() {
     return (
-        <div className="authentication">
+        <section className="authentication">
           <h2 className="authentication-main-title">Autentificación</h2>
           <div className="authentication-forms">
             <NewCustomer />
             <ExistingCustomer />
           </div>
-        </div>
+        </section>
     );
   }
 }

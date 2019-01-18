@@ -25,9 +25,9 @@ class ExistingCustomer extends Component {
 
 	render() {
 		return (
-			<div className="existing-customer">
+			<div className="authentication-forms-container">
 
-				<h3 className="form-header">Ya Soy Cliente</h3>
+				<h3>Ya Soy Cliente</h3>
 				<form>
 					<label>Correo Electrónico</label>
 					<input type="email" className="customer-email" name="email" onChange={event => {this.setState({email: event.target.value})}} value={this.state.email}/>
