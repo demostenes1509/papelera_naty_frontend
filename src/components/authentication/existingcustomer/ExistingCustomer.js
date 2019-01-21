@@ -8,32 +8,35 @@ class ExistingCustomer extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			email:'', 
-			password:''
+			email: '',
+			password: ''
 		}
 		this.onClick = this.onClick.bind(this);
 	}
 
-  validateForm() {
-    return this.state.email.length > 0 && this.state.password.length > 0;
-	}	
-	
+	validateForm() {
+		return this.state.email.length > 0 && this.state.password.length > 0;
+	}
+
 	onClick(event) {
 		event.preventDefault();
-		this.props.login(this.state.email,this.state.password);
-  }	
+		this.props.login(this.state.email, this.state.password);
+	}
 
 	render() {
+
+		const { waiting, error } = this.props
+
 		return (
 			<div className="authentication-forms-container">
 
 				<h3>Ya Soy Cliente</h3>
 				<form>
 					<label>Correo Electrónico</label>
-					<input type="email" className="customer-email" name="email" onChange={event => {this.setState({email: event.target.value})}} value={this.state.email}/>
+					<input type="email" className="customer-email" name="email" onChange={event => { this.setState({ email: event.target.value }) }} value={this.state.email} />
 					<label>Contraseña</label>
 					<div className="hideShowPassword-wrapper" >
-						<input type="password" className="customer-password hideShowPassword-field" name="password" onChange={event => {this.setState({password: event.target.value})}} value={this.state.email} value={this.state.password}/>
+						<input type="password" className="customer-password hideShowPassword-field" name="password" onChange={event => { this.setState({ password: event.target.value }) }} value={this.state.email} value={this.state.password} />
 						<button aria-label="Show Password" tabIndex="0" className="hideShowPassword-toggle hideShowPassword-toggle-show" aria-pressed="false" >Show</button>
 					</div>
 					{/* <label className="form-check">This is a checkbox<input type="checkbox" className="form-check" /></label>
@@ -54,25 +57,35 @@ class ExistingCustomer extends Component {
 							<option>Option 4</option>
 						</select>
 					</label> */}
-					
+
+					{error?<p className="footer-error-message">{error}</p>:''}
 					<Link to="/forget-password" className="forgot-password">Ha olvidado su contraseña ?</Link>
-					<button className="form-btn" disabled={!this.validateForm()} onClick={this.onClick}>Autentificacion</button>
+					<button className="form-btn" disabled={!this.validateForm()} onClick={this.onClick}>Autentificación</button>
 				</form>
 			</div>
 		);
 	}
 }
 
-// export default ExistingCustomer;
+// const mapStateToProps = state => ({
+// 	response: state.loginReducer.response,
+// 	waiting: state.loginReducer.waiting,
+// 	error: state.loginReducer.error
+// })
 
-const mapStateToProps = state => ({
-  response: state.loginReducer.response,
-  waiting: state.loginReducer.waiting,
-  error: state.loginReducer.error
-})
+const mapStateToProps = state => {
+
+	console.log('Response:'+JSON.stringify(state.loginReducer.response,null,'  '));
+	console.log('Error:'+state.loginReducer.error);
+
+	return {
+		waiting: state.loginReducer.waiting,
+		error: state.loginReducer.error
+	};
+}
 
 const mapDispatchToProps = dispatch => ({
-  login: (email,password) => dispatch(loginActions.post(email,password))
+	login: (email, password) => dispatch(loginActions.post(email, password))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExistingCustomer)

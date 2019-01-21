@@ -28,11 +28,9 @@ export function *defaultFetch(actions,api,path=null) {
 export function *defaultPost(actions,api,request) {
 
   try {
-    console.log('request',request);
     yield put(actions.postWaiting())
     const response = yield call(() => api.post(request))
 
-    console.log('MEC>2');
     if (response.status === 200) {
       yield put(actions.postSuccess(response.data))
     } 
@@ -41,9 +39,12 @@ export function *defaultPost(actions,api,request) {
     }
   } 
   catch (err) {
-    console.log('MEC>3:',err);
-    console.log('MEC>3.1:',JSON.stringify(err.response.data,null,'   '));
-    yield put(actions.postError(err));
+    if(err.response && err.response.data) {
+      yield put(actions.postError(err.response.data.server_error));
+    }
+    else {
+      yield put(actions.postError(err));
+    }
+    // console.log(JSON.stringify(err,null,'   '));
   }
-
 }
