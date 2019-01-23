@@ -1,9 +1,3 @@
-const define = (name, value) => {
-	if (!Reflect.defineProperty(exports, name, {value: value})) {
-		console.error(`Property ${name} was not created !`);
-	}
-}
-
-define("TOKEN_NAME", 'token');
-
-define("AUTHORIZATION", 'Authorization');
+export const  TOKEN_NAME= 'naty-token';
+export const  AUTHORIZATION= 'Authorization';
+export const  SESSION_INFO= 'session_info';

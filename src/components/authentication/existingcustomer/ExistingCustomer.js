@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import loginActions from './loginActions'
 import { connect } from 'react-redux'
-
+import { setSessionInfo } from 'components/util/SessionUtil'
 class ExistingCustomer extends Component {
 
 	constructor(props) {
@@ -65,27 +65,26 @@ class ExistingCustomer extends Component {
 			</div>
 		);
 	}
+
+	componentWillReceiveProps(nextprops) {
+		const { error, response }= nextprops;
+		if(!error && response) {
+			setSessionInfo(response);
+			this.props.history.push({
+				pathname: '/'
+			});
+		}
+	}	
 }
 
-// const mapStateToProps = state => ({
-// 	response: state.loginReducer.response,
-// 	waiting: state.loginReducer.waiting,
-// 	error: state.loginReducer.error
-// })
-
-const mapStateToProps = state => {
-
-	console.log('Response:'+JSON.stringify(state.loginReducer.response,null,'  '));
-	console.log('Error:'+state.loginReducer.error);
-
-	return {
-		waiting: state.loginReducer.waiting,
-		error: state.loginReducer.error
-	};
-}
+const mapStateToProps = state => ({
+	response: state.loginReducer.response,
+	waiting: state.loginReducer.waiting,
+	error: state.loginReducer.error
+})
 
 const mapDispatchToProps = dispatch => ({
 	login: (email, password) => dispatch(loginActions.post(email, password))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ExistingCustomer)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ExistingCustomer))

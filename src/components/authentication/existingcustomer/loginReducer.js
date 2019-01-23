@@ -3,8 +3,8 @@ import ReducerUtil from 'components/util/ReducerUtil'
 
 const initialState = {
   waiting: false,
-  response: {},
-  request: {},
+  response: null,
+  request: null,
   error: null
 }
 

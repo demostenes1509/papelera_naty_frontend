@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { TOKEN_NAME,AUTHORIZATION } from 'components/util/ConstantsUtil'
+import { getToken } from 'components/util/SessionUtil'
 
 const client = axios.create({
   baseURL: 'http://localhost:3001/',
@@ -8,7 +9,7 @@ const client = axios.create({
 
 export default (url, method, data ) => {
 
-  const token=localStorage.getItem(TOKEN_NAME);
+  const token = getToken();
   const headers = {};
   if(token) {
     headers[AUTHORIZATION] = `Bearer ${token}`;
