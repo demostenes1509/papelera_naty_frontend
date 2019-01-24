@@ -8,7 +8,8 @@ import Product from 'components/productcontent/Product';
 import tokenActions from 'components/token/tokenActions'
 import userSessionActions from 'components/usersession/userSessionActions'
 import { connect } from 'react-redux'
-import { setSessionInfo } from 'components/util/SessionUtil'
+import { setToken } from 'components/util/SessionUtil'
+import { TOKEN_NAME } from 'components/util/ConstantsUtil'
 
 class App extends Component {
 
@@ -36,7 +37,7 @@ class App extends Component {
   componentWillReceiveProps(nextprops) {
     const { payload } = nextprops;
     if(payload) {
-			setSessionInfo(payload);
+			setToken(payload[TOKEN_NAME]);
 			if(payload.isLoggedIn) this.props.loggedIn(payload);
 			else this.props.notLoggedIn();
     }

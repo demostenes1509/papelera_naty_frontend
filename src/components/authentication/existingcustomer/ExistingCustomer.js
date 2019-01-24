@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import loginActions from './loginActions'
 import { connect } from 'react-redux'
-import { setSessionInfo } from 'components/util/SessionUtil'
 import userSessionActions from 'components/usersession/userSessionActions'
 class ExistingCustomer extends Component {
 
@@ -26,7 +25,7 @@ class ExistingCustomer extends Component {
 
 	render() {
 
-		const { waiting, error } = this.props
+		const { error } = this.props
 
 		return (
 			<div className="authentication-forms-container">
@@ -70,8 +69,6 @@ class ExistingCustomer extends Component {
 	componentWillReceiveProps(nextprops) {
 		const { error, response }= nextprops;
 		if(!error && response) {
-			setSessionInfo(response);
-			console.log('INVOCANDO LOGGED IN');
 			this.props.loggedIn(response);
 			this.props.history.push({
 				pathname: '/'

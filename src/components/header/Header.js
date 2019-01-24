@@ -35,12 +35,9 @@ class Header extends Component {
 	}	
 
 	componentWillReceiveProps(nextprops) {
-		console.log('RESPUESTA DE LOGGED OUT');
 		const { error, response, loggedin } = nextprops;
 		if(loggedin === this.props.loggedin) {
 			if(!error && response) {
-				setSessionInfo(response);
-				console.log('INVOCANDO NOT LOGGED IN');
 				this.props.notLoggedIn();
 			}
 		}
@@ -48,9 +45,6 @@ class Header extends Component {
 }
 
 const HeaderDetails = (props) => {
-
-	console.log(props);
-
 	if(props.loggedin) {
 		return	<div className="header-details">
 							<p>LOGEADO !!</p>

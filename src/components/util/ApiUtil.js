@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { TOKEN_NAME,AUTHORIZATION } from 'components/util/ConstantsUtil'
+import { AUTHORIZATION } from 'components/util/ConstantsUtil'
 import { getToken } from 'components/util/SessionUtil'
 
 const client = axios.create({
