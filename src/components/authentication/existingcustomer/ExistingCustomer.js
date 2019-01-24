@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import loginActions from './loginActions'
 import { connect } from 'react-redux'
 import { setSessionInfo } from 'components/util/SessionUtil'
+import userSessionActions from 'components/usersession/userSessionActions'
 class ExistingCustomer extends Component {
 
 	constructor(props) {
@@ -70,6 +71,8 @@ class ExistingCustomer extends Component {
 		const { error, response }= nextprops;
 		if(!error && response) {
 			setSessionInfo(response);
+			console.log('INVOCANDO LOGGED IN');
+			this.props.loggedIn(response);
 			this.props.history.push({
 				pathname: '/'
 			});
@@ -84,7 +87,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-	login: (email, password) => dispatch(loginActions.post(email, password))
+	login: (email, password) => dispatch(loginActions.post(email, password)),
+	loggedIn: (payload) => dispatch(userSessionActions.loggedIn(payload))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ExistingCustomer))

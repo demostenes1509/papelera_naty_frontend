@@ -1,6 +1,4 @@
 import { call, put } from 'redux-saga/effects'
-import { TOKEN_NAME } from 'components/util/ConstantsUtil'
-import { setNotLoggedIn } from './SessionUtil'
 
 export function *defaultFetch(actions,api,path=null) {
 

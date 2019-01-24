@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { isLoggedIn } from 'components/util/SessionUtil'
+import { isLoggedIn,setSessionInfo } from 'components/util/SessionUtil'
+import logoutActions from './logoutActions'
+import { connect } from 'react-redux'
+import userSessionActions from 'components/usersession/userSessionActions'
 
 class Header extends Component {
+
+	constructor(props) {
+		super(props);
+		this.onClick = this.onClick.bind(this);
+	}
+
 	render() {
 		return (
 			<header>
@@ -15,35 +24,58 @@ class Header extends Component {
 					<img src='/images/tel-tab.png' alt='ni idea' />
 					<img src='/images/header-image.png' alt='ni idea 2' />
 				</div>
-				<HeaderDetails />
-				{/* <div className="header-details">
-					<Link to="/contact">Contacto</Link>
-					<div className="cart-box">
-						<Link to="/shopping-cart" className="header-cart">Carrito:vacío</Link>
-					</div>
-					<Link to="/login">Inicio de Sesión</Link>
-				</div> */}
+				<HeaderDetails onClick={this.onClick} loggedin={this.props.loggedin}/>
 			</header>
 		);
 	}
+
+	onClick(event) {
+		event.preventDefault();
+		this.props.logout();
+	}	
+
+	componentWillReceiveProps(nextprops) {
+		console.log('RESPUESTA DE LOGGED OUT');
+		const { error, response, loggedin } = nextprops;
+		if(loggedin === this.props.loggedin) {
+			if(!error && response) {
+				setSessionInfo(response);
+				console.log('INVOCANDO NOT LOGGED IN');
+				this.props.notLoggedIn();
+			}
+		}
+	}		
 }
 
-const HeaderDetails = () => {
-	if(isLoggedIn()) {
-		return <div className="header-details">
-			<p>LOGEADO !!</p>
-		</div>
+const HeaderDetails = (props) => {
+
+	console.log(props);
+
+	if(props.loggedin) {
+		return	<div className="header-details">
+							<p>LOGEADO !!</p>
+							<Link to="/" onClick={props.onClick}>Logout</Link>
+						</div>
 	}
-	else {
-		return <div className="header-details">
-					<Link to="/contact">Contacto</Link>
-					<div className="cart-box">
-						<Link to="/shopping-cart" className="header-cart">Carrito:vacío</Link>
-					</div>
-					<Link to="/login">Inicio de Sesión</Link>
+	return <div className="header-details">
+						<Link to="/contact">Contacto</Link>
+						<div className="cart-box">
+							<Link to="/shopping-cart" className="header-cart">Carrito:vacío</Link>
+						</div>
+						<Link to="/login">Inicio de Sesión</Link>
 				</div>;
-	}
-
 }
 
-export default Header;
+const mapStateToProps = state => ({
+	response: state.logoutReducer.response,
+	waiting: state.logoutReducer.waiting,
+	error: state.logoutReducer.error,
+	loggedin: state.userSessionReducer.isLoggedIn
+})
+
+const mapDispatchToProps = dispatch => ({
+	logout: () => dispatch(logoutActions.post()),
+	notLoggedIn: () => dispatch(userSessionActions.notLoggedIn())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

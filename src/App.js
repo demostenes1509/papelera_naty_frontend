@@ -6,6 +6,7 @@ import SideBar from 'components/sidebar/SideBar';
 import MainContent from 'components/maincontent/MainContent';
 import Product from 'components/productcontent/Product';
 import tokenActions from 'components/token/tokenActions'
+import userSessionActions from 'components/usersession/userSessionActions'
 import { connect } from 'react-redux'
 import { setSessionInfo } from 'components/util/SessionUtil'
 
@@ -35,7 +36,9 @@ class App extends Component {
   componentWillReceiveProps(nextprops) {
     const { payload } = nextprops;
     if(payload) {
-      setSessionInfo(payload);
+			setSessionInfo(payload);
+			if(payload.isLoggedIn) this.props.loggedIn(payload);
+			else this.props.notLoggedIn();
     }
 	}	
 }
@@ -47,7 +50,9 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-	fetch: () => dispatch(tokenActions.fetch())
+	fetch: () => dispatch(tokenActions.fetch()),
+	notLoggedIn: () => dispatch(userSessionActions.notLoggedIn()),
+	loggedIn: (payload) => dispatch(userSessionActions.loggedIn(payload))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
