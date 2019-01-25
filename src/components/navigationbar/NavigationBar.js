@@ -24,8 +24,6 @@ class NavigationBar extends Component {
 
   render() {
 
-    const { history } = this.props;
-
     return (
       <section className="navigation-bar">
         <div className="navigation-bar-1"></div>

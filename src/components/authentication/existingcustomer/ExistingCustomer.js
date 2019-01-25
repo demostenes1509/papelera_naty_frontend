@@ -33,10 +33,10 @@ class ExistingCustomer extends Component {
 				<h3>Ya Soy Cliente</h3>
 				<form>
 					<label>Correo Electrónico</label>
-					<input type="email" className="customer-email" name="email" onChange={event => { this.setState({ email: event.target.value }) }} value={this.state.email} />
+					<input type="email" className="customer-email" name="email" onChange={event => {this.setState({ email: event.target.value })}} value={this.state.email} />
 					<label>Contraseña</label>
 					<div className="hideShowPassword-wrapper" >
-						<input type="password" className="customer-password hideShowPassword-field" name="password" onChange={event => { this.setState({ password: event.target.value }) }} value={this.state.email} value={this.state.password} />
+						<input type="password" className="customer-password hideShowPassword-field" name="password" onChange={event => {this.setState({ password: event.target.value })}} value={this.state.password} />
 						<button aria-label="Show Password" tabIndex="0" className="hideShowPassword-toggle hideShowPassword-toggle-show" aria-pressed="false" >Show</button>
 					</div>
 					{/* <label className="form-check">This is a checkbox<input type="checkbox" className="form-check" /></label>

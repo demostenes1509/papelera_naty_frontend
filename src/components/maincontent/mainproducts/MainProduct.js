@@ -34,9 +34,9 @@ const ProductsFormats = ({formats}) => (
 
 const ProductPicture = ({pictures}) => {
 	if(pictures && pictures.length>0) {
-		return <img className="main-product-image" src={`http://localhost:3001/productspictures/${pictures[0].id}`} alt=""/>
+		return <img className="main-product-image" src={`http://localhost:3001/static/productspictures/${pictures[0].id}`} alt="" onError={`http://localhost:3001/static/productspictures/default.jpg`}/>
 	}
-	return <img className="main-product-image" src={`http://localhost:3001/productspictures/0`} alt=""/>
+	return <img className="main-product-image" src={`http://localhost:3001/static/productspictures/default.jpg`} alt=""/>
 }
 
 

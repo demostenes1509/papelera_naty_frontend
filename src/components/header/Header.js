@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { isLoggedIn,setSessionInfo } from 'components/util/SessionUtil'
 import logoutActions from './logoutActions'
 import { connect } from 'react-redux'
 import userSessionActions from 'components/usersession/userSessionActions'
