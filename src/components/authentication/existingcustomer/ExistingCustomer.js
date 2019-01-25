@@ -70,8 +70,9 @@ class ExistingCustomer extends Component {
 		const { error, response }= nextprops;
 		if(!error && response) {
 			this.props.loggedIn(response);
+			const newpath=(response.isAdmin?'/gestion':'/');
 			this.props.history.push({
-				pathname: '/'
+				pathname: newpath
 			});
 		}
 	}	

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch } from "react-router-dom";
-import Layout from 'components/Layout';
+import Layout from 'components/layouts/Layout';
+import AdminLayout from 'components/layouts/AdminLayout';
 import Authentication from 'components/authentication/Authentication';
 import SideBar from 'components/sidebar/SideBar';
 import MainContent from 'components/maincontent/MainContent';
@@ -21,6 +22,7 @@ class App extends Component {
       <Router>
         <Switch>
           <Layout exact path="/" components={[SideBar,MainContent]}/>
+          <AdminLayout exact path="/gestion" components={[Authentication]}/>
           <Layout exact path="/login" components={[Authentication]}/>
           <Layout exact path="/search/:search" components={[SideBar,MainContent]}/>
           <Layout exact path="/:category" components={[SideBar,MainContent]}/>

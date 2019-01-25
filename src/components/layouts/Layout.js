@@ -1,8 +1,8 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import Header from './header/Header';
-import NavigationBar from './navigationbar/NavigationBar';
-import Footer from './footer/Footer';
+import Header from 'components/header/Header';
+import NavigationBar from 'components/navigationbar/NavigationBar';
+import Footer from 'components/footer/Footer';
 
 const Layout = ({ components: Components, ...rest }) => (
 	<Route {...rest} render={props => (

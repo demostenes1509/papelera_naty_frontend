@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,withRouter } from 'react-router-dom';
 import logoutActions from './logoutActions'
 import { connect } from 'react-redux'
 import userSessionActions from 'components/usersession/userSessionActions'
@@ -38,6 +38,9 @@ class Header extends Component {
 		if(loggedin === this.props.loggedin) {
 			if(!error && response) {
 				this.props.notLoggedIn();
+				this.props.history.push({
+					pathname: '/'
+				});				
 			}
 		}
 	}		
@@ -71,4 +74,4 @@ const mapDispatchToProps = dispatch => ({
 	notLoggedIn: () => dispatch(userSessionActions.notLoggedIn())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header))
