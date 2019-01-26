@@ -1,7 +1,7 @@
 import { fork, take, call, put } from 'redux-saga/effects'
 import Actions, { LoginTypes } from './loginActions'
-import userSessionActions from 'components/usersession/userSessionActions'
 import LoginApi from './loginApi'
+import userSessionActions from 'components/usersession/userSessionActions'
 
 function *loginPost(actions,api,request) {
 

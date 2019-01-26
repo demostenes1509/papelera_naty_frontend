@@ -2,7 +2,7 @@ import { UserSessionTypes } from './userSessionActions'
 
 const initialState = {
   isLoggedIn: false,
-  isAdmin: null,
+  isAdmin: false,
   firstName: null,
 	lastName: null,
 	error: null
@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
     case UserSessionTypes.NOT_LOGGED_IN:
       return {
 				isLoggedIn: false,
-				isAdmin: null,
+				isAdmin: false,
 				firstName: null,
 				lastName: null,
 				error: null		

@@ -67,10 +67,11 @@ class ExistingCustomer extends Component {
 	}
 
 	componentWillReceiveProps(nextprops) {
-		const { loggedin } = nextprops;
-		if(loggedin) {
+		const { loggedin,isadmin } = nextprops;
+		if(loggedin && loggedin!==this.props.loggedin) {
+			const newpath=(isadmin?'/gestion':'/');
 			this.props.history.push({
-				pathname: '/'
+				pathname: newpath
 			});
 		}
 	}	
@@ -78,7 +79,8 @@ class ExistingCustomer extends Component {
 
 const mapStateToProps = state => ({
 	error: state.userSessionReducer.error,
-	loggedin: state.userSessionReducer.isLoggedIn
+	loggedin: state.userSessionReducer.isLoggedIn,
+	isadmin: state.userSessionReducer.isAdmin
 })
 
 const mapDispatchToProps = dispatch => ({
