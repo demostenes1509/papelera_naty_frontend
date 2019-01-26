@@ -67,10 +67,10 @@ class ExistingCustomer extends Component {
 	}
 
 	componentWillReceiveProps(nextprops) {
-		const { error, response }= nextprops;
-		if(!error && response) {
-			this.props.loggedIn(response);
-			const newpath=(response.isAdmin?'/gestion':'/');
+		console.log('ACA POR ERROR');
+		const { loggedin,isadmin } = nextprops;
+		if(loggedin) {
+			const newpath=(isadmin?'/gestion':'/');
 			this.props.history.push({
 				pathname: newpath
 			});
@@ -79,14 +79,13 @@ class ExistingCustomer extends Component {
 }
 
 const mapStateToProps = state => ({
-	response: state.loginReducer.response,
-	waiting: state.loginReducer.waiting,
-	error: state.loginReducer.error
+	error: state.userSessionReducer.error,
+	loggedin: state.userSessionReducer.isLoggedIn,
+	isadmin: state.userSessionReducer.isAdmin
 })
 
 const mapDispatchToProps = dispatch => ({
-	login: (email, password) => dispatch(loginActions.post(email, password)),
-	loggedIn: (payload) => dispatch(userSessionActions.loggedIn(payload))
+	login: (email, password) => dispatch(loginActions.post(email, password))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ExistingCustomer))
