@@ -67,9 +67,8 @@ class ExistingCustomer extends Component {
 	}
 
 	componentWillReceiveProps(nextprops) {
-		console.log('ACA POR ERROR');
 		const { loggedin,isadmin } = nextprops;
-		if(loggedin) {
+		if(loggedin && loggedin!==this.props.loggedin) {
 			const newpath=(isadmin?'/gestion':'/');
 			this.props.history.push({
 				pathname: newpath

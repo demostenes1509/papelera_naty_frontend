@@ -12,6 +12,8 @@ class Header extends Component {
 	}
 
 	render() {
+
+		// Ver como mostrar el error de logout aca !!
 		return (
 			<header>
 				<div className="header-logo">
@@ -34,14 +36,11 @@ class Header extends Component {
 	}	
 
 	componentWillReceiveProps(nextprops) {
-		const { error, response, loggedin } = nextprops;
-		if(loggedin === this.props.loggedin) {
-			if(!error && response) {
-				this.props.notLoggedIn();
-				this.props.history.push({
-					pathname: '/'
-				});				
-			}
+		const { loggedin } = nextprops;
+		if(!loggedin && loggedin !== this.props.loggedin) {
+			this.props.history.push({
+				pathname: '/'
+			});				
 		}
 	}		
 }
@@ -63,15 +62,12 @@ const HeaderDetails = (props) => {
 }
 
 const mapStateToProps = state => ({
-	response: state.logoutReducer.response,
-	waiting: state.logoutReducer.waiting,
-	error: state.logoutReducer.error,
-	loggedin: state.userSessionReducer.isLoggedIn
+	loggedin: state.userSessionReducer.isLoggedIn,
+	error: state.userSessionReducer.error
 })
 
 const mapDispatchToProps = dispatch => ({
-	logout: () => dispatch(logoutActions.post()),
-	notLoggedIn: () => dispatch(userSessionActions.notLoggedIn())
+	logout: () => dispatch(logoutActions.post())
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header))
