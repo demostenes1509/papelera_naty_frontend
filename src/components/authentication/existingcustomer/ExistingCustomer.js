@@ -67,9 +67,8 @@ class ExistingCustomer extends Component {
 	}
 
 	componentWillReceiveProps(nextprops) {
-		const { error, response }= nextprops;
-		if(!error && response) {
-			this.props.loggedIn(response);
+		const { loggedin } = nextprops;
+		if(loggedin) {
 			this.props.history.push({
 				pathname: '/'
 			});
@@ -78,14 +77,12 @@ class ExistingCustomer extends Component {
 }
 
 const mapStateToProps = state => ({
-	response: state.loginReducer.response,
-	waiting: state.loginReducer.waiting,
-	error: state.loginReducer.error
+	error: state.userSessionReducer.error,
+	loggedin: state.userSessionReducer.isLoggedIn
 })
 
 const mapDispatchToProps = dispatch => ({
-	login: (email, password) => dispatch(loginActions.post(email, password)),
-	loggedIn: (payload) => dispatch(userSessionActions.loggedIn(payload))
+	login: (email, password) => dispatch(loginActions.post(email, password))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ExistingCustomer))
