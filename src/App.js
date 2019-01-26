@@ -7,17 +7,14 @@ import SideBar from 'components/sidebar/SideBar';
 import MainContent from 'components/maincontent/MainContent';
 import Product from 'components/productcontent/Product';
 import tokenActions from 'components/token/tokenActions'
-import userSessionActions from 'components/usersession/userSessionActions'
 import { connect } from 'react-redux'
-import { setToken } from 'components/util/SessionUtil'
-import { TOKEN_NAME } from 'components/util/ConstantsUtil'
 
 class App extends Component {
 
   render() {
-    const { payload } = this.props;
-
-    if(!payload) return <></>;
+		const { loggedin } = this.props;
+		
+    if(loggedin===null) return <></>;
     return (
       <Router>
         <Switch>
@@ -35,27 +32,15 @@ class App extends Component {
   componentWillMount() {
 		this.props.fetch();
   }
-  
-  componentWillReceiveProps(nextprops) {
-    const { payload } = nextprops;
-    if(payload) {
-			setToken(payload[TOKEN_NAME]);
-			if(payload.isLoggedIn) this.props.loggedIn(payload);
-			else this.props.notLoggedIn();
-    }
-	}	
 }
 
 const mapStateToProps = state => ({
-	payload: state.tokenReducer.payload,
-	loading: state.tokenReducer.loading,
-	error: state.tokenReducer.error
+	loggedin: state.userSessionReducer.isLoggedIn,
+	error: state.userSessionReducer.error	
 })
 
 const mapDispatchToProps = dispatch => ({
 	fetch: () => dispatch(tokenActions.fetch()),
-	notLoggedIn: () => dispatch(userSessionActions.notLoggedIn()),
-	loggedIn: (payload) => dispatch(userSessionActions.loggedIn(payload))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

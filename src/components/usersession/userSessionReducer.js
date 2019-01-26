@@ -1,8 +1,8 @@
 import { UserSessionTypes } from './userSessionActions'
 
 const initialState = {
-  isLoggedIn: false,
-  isAdmin: false,
+  isLoggedIn: null,
+  isAdmin: null,
   firstName: null,
 	lastName: null,
 	error: null
