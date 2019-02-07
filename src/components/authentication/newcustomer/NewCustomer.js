@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
+import TwitterLogin from 'react-twitter-auth';
 import loginFacebookActions from './loginFacebookActions'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
@@ -26,6 +27,10 @@ class NewCustomer extends Component {
 					autoLoad={false}
 					fields="name,email,picture"
 					callback={this.facebookResponse} />
+
+			<TwitterLogin loginUrl="http://localhost:4000/api/v1/auth/twitter"
+										onFailure={this.onFailure} onSuccess={this.twitterResponse}
+										requestTokenUrl="http://localhost:4000/api/v1/auth/twitter/reverse"/>					
 
         {/* <h3>Registro Nuevo Cliente</h3>
         <p>Escriba su correo electrónico para crear su cuenta</p>
