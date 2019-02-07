@@ -12,19 +12,9 @@ class NewCustomer extends Component {
 	}	
 
 	facebookResponse (response) {
-		this.props.loginFacebook(response.accessToken, response.signedRequest);
-		/*
-		const tokenBlob = new Blob([JSON.stringify({accessToken: response.accessToken, signedRequest:response.signedRequest}, null, 2)], {type : 'application/json'});
-		const options = {
-				method: 'POST',
-				body: tokenBlob,
-				mode: 'no-cors',
-				cache: 'default'
-		};
-		fetch('http://localhost:3001/login-facebook', options).then(r => {
-			console.log(r);
-		})
-		*/
+		if(response.accessToken && response.signedRequest) {
+			this.props.loginFacebook(response.accessToken, response.signedRequest);
+		}
 	}
 
   render() {
@@ -47,7 +37,18 @@ class NewCustomer extends Component {
 
       </div>
     );
-  }
+	}
+	
+	componentWillReceiveProps(nextprops) {
+		const { loggedin,isadmin } = nextprops;
+		if(loggedin && loggedin!==this.props.loggedin) {
+			const newpath=(isadmin?'/gestion':'/');
+			this.props.history.push({
+				pathname: newpath
+			});
+		}
+	}	
+
 }
 
 const mapStateToProps = state => ({
