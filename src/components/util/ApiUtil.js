@@ -1,10 +1,11 @@
 import axios from 'axios'
 import { AUTHORIZATION } from 'components/util/ConstantsUtil'
 import { getToken } from 'components/util/SessionUtil'
+import { API_URL, TIMEOUT } from 'config'
 
 const client = axios.create({
-  baseURL: 'http://localhost:3001/',
-  timeout: 3000
+  baseURL: API_URL,
+  timeout: TIMEOUT
 })
 
 export default (url, method, data ) => {

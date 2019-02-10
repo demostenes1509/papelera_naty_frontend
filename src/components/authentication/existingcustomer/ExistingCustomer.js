@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import loginActions from './loginActions'
 import { connect } from 'react-redux'
+
 class ExistingCustomer extends Component {
 
 	constructor(props) {

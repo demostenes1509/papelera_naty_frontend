@@ -5,11 +5,11 @@ import { TOKEN_NAME } from 'components/util/ConstantsUtil'
 import { setToken } from 'components/util/SessionUtil'
 import userSessionActions from 'components/usersession/userSessionActions'
 
-export function *tokenFetch(actions,api,path=null) {
+export function *tokenFetch(actions,api,socketId) {
 
   try {
     yield put(actions.fetchLoading())
-		const response = yield call(() => api.fetch(path))
+		const response = yield call(() => api.fetch(socketId))
 
 		setToken(response.data[TOKEN_NAME]);
 
@@ -17,7 +17,7 @@ export function *tokenFetch(actions,api,path=null) {
 			yield put(userSessionActions.loggedIn(response.data));
 		}
 		else {
-			yield put(userSessionActions.notLoggedIn())
+			yield put(userSessionActions.notLoggedIn(response.data.socketId))
 		}
 
   } 
@@ -30,8 +30,8 @@ export function *tokenFetch(actions,api,path=null) {
 /* --------------------- Watchers ------------------ */
 const watchFetchToken = function *() {
   while (true) {
-    yield take(TokenTypes.FETCH)
-    yield fork(() => tokenFetch(Actions,TokenApi))
+		const value = yield take(TokenTypes.FETCH)
+    yield fork(() => tokenFetch(Actions,TokenApi,value.socketId))
   }
 }
 

@@ -8,6 +8,12 @@ import MainContent from 'components/maincontent/MainContent';
 import Product from 'components/productcontent/Product';
 import tokenActions from 'components/token/tokenActions'
 import { connect } from 'react-redux'
+import { socket } from 'components/util/SocketUtil';
+
+// import io from 'socket.io-client';
+// import {API_URL} from 'config';
+
+// const socket = io(API_URL);
 
 class App extends Component {
 
@@ -30,7 +36,10 @@ class App extends Component {
   }
 
   componentWillMount() {
-		this.props.fetch();
+		const { fetch } = this.props; 
+		socket.on('connect', function() {
+			fetch(socket.id);
+		}); 
   }
 }
 
@@ -40,7 +49,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-	fetch: () => dispatch(tokenActions.fetch()),
+	fetch: (socketId) => dispatch(tokenActions.fetch(socketId)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

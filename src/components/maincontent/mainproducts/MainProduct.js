@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { API_URL_STATIC } from 'config';
 
 class MainProduct extends Component {
 
@@ -34,9 +35,9 @@ const ProductsFormats = ({formats}) => (
 
 const ProductPicture = ({pictures}) => {
 	if(pictures && pictures.length>0) {
-		return <img className="main-product-image" src={`http://localhost:3001/static/productspictures/${pictures[0].id}`} alt="" onError={`http://localhost:3001/static/productspictures/default.jpg`}/>
+		return <img className="main-product-image" src={`${API_URL_STATIC}/productspictures/${pictures[0].id}`} alt="" onError={`${API_URL_STATIC}/productspictures/default.jpg`}/>
 	}
-	return <img className="main-product-image" src={`http://localhost:3001/static/productspictures/default.jpg`} alt=""/>
+	return <img className="main-product-image" src={`${API_URL_STATIC}/productspictures/default.jpg`} alt=""/>
 }
 
 

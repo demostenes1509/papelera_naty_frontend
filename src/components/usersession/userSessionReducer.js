@@ -1,6 +1,7 @@
 import { UserSessionTypes } from './userSessionActions'
 
 const initialState = {
+	socketId: null,
   isLoggedIn: null,
   isAdmin: null,
   firstName: null,
@@ -12,6 +13,7 @@ export default (state = initialState, action) => {
 	switch(action.type) {
     case UserSessionTypes.NOT_LOGGED_IN:
       return {
+				socketId: action.socketId, 
 				isLoggedIn: false,
 				isAdmin: false,
 				firstName: null,
@@ -20,6 +22,7 @@ export default (state = initialState, action) => {
       }
 		case UserSessionTypes.LOGGED_IN:
       return {
+				socketId: action.payload.socketId, 
         isLoggedIn: true,
         isAdmin: action.payload.isAdmin,
         firstName: action.payload.firstName,
@@ -28,6 +31,7 @@ export default (state = initialState, action) => {
       }
 		case UserSessionTypes.LOGIN_ERROR:
       return {
+				socketId: null,
         isLoggedIn: false,
         isAdmin: false,
         firstName: null,

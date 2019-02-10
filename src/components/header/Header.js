@@ -25,7 +25,7 @@ class Header extends Component {
 					<img src='/images/tel-tab.png' alt='ni idea' />
 					<img src='/images/header-image.png' alt='ni idea 2' />
 				</div>
-				<HeaderDetails onClick={this.onClick} loggedin={this.props.loggedin}/>
+				<HeaderDetails onClick={this.onClick} loggedin={this.props.loggedin} firstName={this.props.firstName} lastName={this.props.lastName}/>
 			</header>
 		);
 	}
@@ -48,7 +48,7 @@ class Header extends Component {
 const HeaderDetails = (props) => {
 	if(props.loggedin) {
 		return	<div className="header-details">
-							<p>LOGEADO !!</p>
+							<p>LOGEADO !! {props.firstName} {props.lastName} </p>
 							<Link to="/" onClick={props.onClick}>Logout</Link>
 						</div>
 	}
@@ -63,6 +63,8 @@ const HeaderDetails = (props) => {
 
 const mapStateToProps = state => ({
 	loggedin: state.userSessionReducer.isLoggedIn,
+	firstName: state.userSessionReducer.firstName,
+	lastName: state.userSessionReducer.lastName,
 	error: state.userSessionReducer.error
 })
 

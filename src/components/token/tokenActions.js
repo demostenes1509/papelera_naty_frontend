@@ -5,7 +5,7 @@ export const TokenTypes = {
     FETCH_ERROR: 'FETCH_TOKEN_ERROR'
   }
   
-  const fetch = () => ({ type: TokenTypes.FETCH })
+  const fetch = socketId => ({ type: TokenTypes.FETCH, socketId })
   const fetchLoading = () => ({ type: TokenTypes.FETCH_LOADING })
   const fetchSuccess = payload => ({ type: TokenTypes.FETCH_SUCCESS, payload })
   const fetchError = error => ({ type: TokenTypes.FETCH_ERROR, error })
