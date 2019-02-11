@@ -37,9 +37,11 @@ class App extends Component {
 		if(token) {
 			setAxiosAuthToken(token);
 			const payload = jwt.verify(token,JWT_KEY);
+			this.logge
+		}
+		else {
 
 		}
-		// else {}
   }
 }
 
