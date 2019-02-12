@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link,withRouter } from 'react-router-dom';
-import logoutActions from './logoutActions'
-import { connect } from 'react-redux'
 import userSessionActions from 'components/usersession/userSessionActions'
+import { connect } from 'react-redux';
+import { clearToken,setAxiosAuthToken } from 'components/util/SessionUtil';
 
 class Header extends Component {
 
@@ -32,7 +32,9 @@ class Header extends Component {
 
 	onClick(event) {
 		event.preventDefault();
-		this.props.logout();
+		clearToken();
+		setAxiosAuthToken();
+		this.props.notLoggedIn();
 	}	
 
 	componentWillReceiveProps(nextprops) {
@@ -69,7 +71,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-	logout: () => dispatch(logoutActions.post())
+	notLoggedIn: (payload) => dispatch(userSessionActions.notLoggedIn())
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header))

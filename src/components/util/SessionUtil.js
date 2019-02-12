@@ -9,6 +9,10 @@ const getToken = () => {
     return localStorage.getItem(SESSION_INFO);
 };
 
+const clearToken = () => {
+    return localStorage.removeItem(SESSION_INFO);
+};
+
 const setAxiosAuthToken = token => {
     if(token) {
         axios.defaults.headers.common['Authorization'] = token;
@@ -21,5 +25,6 @@ const setAxiosAuthToken = token => {
 export {
 		setToken,
 		getToken,
+		clearToken,
 		setAxiosAuthToken
 }

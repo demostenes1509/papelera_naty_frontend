@@ -2,14 +2,21 @@ import { fork, take, call, put } from 'redux-saga/effects'
 import Actions, { LoginTypes } from './loginActions'
 import LoginApi from './loginApi'
 import userSessionActions from 'components/usersession/userSessionActions'
+import { setToken } from 'components/util/SessionUtil';
+import jwt from 'jsonwebtoken';
+import { JWT_KEY } from 'config';
 
 function *loginPost(actions,api,request) {
 
   try {
-    yield put(actions.postWaiting())
-    const response = yield call(() => api.post(request))
+		yield put(actions.postWaiting())
+		const response = yield call(() => api.post(request))
+		const { token } = response.data;
 
-		yield put(userSessionActions.loggedIn(response.data))
+		setToken(token);
+		const payload = jwt.verify(token,JWT_KEY);
+
+		yield put(userSessionActions.loggedIn(payload));
   } 
   catch (err) {
     if(err.response && err.response.data) {

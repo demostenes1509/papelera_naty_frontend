@@ -12,7 +12,6 @@ import { getToken,setAxiosAuthToken } from 'components/util/SessionUtil';
 import jwt from 'jsonwebtoken';
 import { JWT_KEY } from 'config';
 
-
 class App extends Component {
 
   render() {
@@ -34,13 +33,13 @@ class App extends Component {
 
   componentWillMount() {
 		const token=getToken();
+		setAxiosAuthToken(token);
 		if(token) {
-			setAxiosAuthToken(token);
 			const payload = jwt.verify(token,JWT_KEY);
-			this.logge
+			this.props.loggedIn(payload);
 		}
 		else {
-
+			this.props.notLoggedIn();
 		}
   }
 }
