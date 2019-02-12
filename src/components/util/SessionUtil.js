@@ -1,4 +1,6 @@
 import { SESSION_INFO } from 'components/util/ConstantsUtil'
+import jwt from 'jsonwebtoken';
+import { JWT_KEY } from 'config';
 import axios from 'axios';
 
 const setToken = (token) => {
@@ -22,9 +24,21 @@ const setAxiosAuthToken = token => {
     }
 }
 
+const raiseTokenAction = (token,loggedIn, notLoggedIn) => {
+	setAxiosAuthToken(token);
+	if(token) {
+		const payload = jwt.verify(token,JWT_KEY);
+		loggedIn(payload);
+	}
+	else {
+		notLoggedIn();
+	}
+}
+
 export {
 		setToken,
 		getToken,
 		clearToken,
-		setAxiosAuthToken
+		setAxiosAuthToken,
+		raiseTokenAction
 }

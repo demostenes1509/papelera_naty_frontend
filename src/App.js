@@ -8,7 +8,7 @@ import MainContent from 'components/maincontent/MainContent';
 import Product from 'components/productcontent/Product';
 import userSessionActions from 'components/usersession/userSessionActions'
 import { connect } from 'react-redux';
-import { getToken,setAxiosAuthToken } from 'components/util/SessionUtil';
+import { getToken,raiseTokenAction } from 'components/util/SessionUtil';
 import jwt from 'jsonwebtoken';
 import { JWT_KEY } from 'config';
 
@@ -33,14 +33,7 @@ class App extends Component {
 
   componentWillMount() {
 		const token=getToken();
-		setAxiosAuthToken(token);
-		if(token) {
-			const payload = jwt.verify(token,JWT_KEY);
-			this.props.loggedIn(payload);
-		}
-		else {
-			this.props.notLoggedIn();
-		}
+		raiseTokenAction(token, this.props.loggedIn,this.props.notLoggedIn);
   }
 }
 

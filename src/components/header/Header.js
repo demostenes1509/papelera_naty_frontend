@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link,withRouter } from 'react-router-dom';
 import userSessionActions from 'components/usersession/userSessionActions'
 import { connect } from 'react-redux';
-import { clearToken,setAxiosAuthToken } from 'components/util/SessionUtil';
+import { raiseTokenAction } from 'components/util/SessionUtil';
 
 class Header extends Component {
 
@@ -32,9 +32,7 @@ class Header extends Component {
 
 	onClick(event) {
 		event.preventDefault();
-		clearToken();
-		setAxiosAuthToken();
-		this.props.notLoggedIn();
+		raiseTokenAction(null, null, this.props.notLoggedIn);
 	}	
 
 	componentWillReceiveProps(nextprops) {

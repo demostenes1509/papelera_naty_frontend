@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from 'react-fontawesome'
 import { API_URL } from 'config'
-import { getToken } from 'components/util/SessionUtil'
+import { raiseTokenAction } from 'components/util/SessionUtil'
 import { withRouter } from 'react-router-dom';
 import userSessionActions from 'components/usersession/userSessionActions'
 import { connect } from 'react-redux'
@@ -17,19 +17,21 @@ class OAuth extends Component {
   componentDidMount() {
     const { socket, provider } = this.props
 
-    socket.on(provider, user => {  
-			console.log(JSON.stringify(user));
+    socket.on(provider, response => {  
+			console.log(JSON.stringify(response));
 			// this.popup.close()
 			
 			const check = setInterval(() => {
 				if (this.popup) {
 					clearInterval(check)
 					this.popup.close();
-					this.props.loggedIn(user);
+
+					const { token } = response;
+					raiseTokenAction(token, this.props.loggedIn,null);
 				}
 			}, 1000);
 
-      this.setState({user})
+      // this.setState({user})
     })
   }
 
@@ -48,8 +50,7 @@ class OAuth extends Component {
     const width = 600, height = 600
     const left = (window.innerWidth / 2) - (width / 2)
 		const top = (window.innerHeight / 2) - (height / 2)
-		const access_token = getToken();
-		const url = `${API_URL}/auth/${provider}?socketId=${socket.id}&access_token=${access_token}`
+		const url = `${API_URL}/auth/${provider}?socketId=${socket.id}`
 		console.log(url);
 
     return window.open(url, '',       

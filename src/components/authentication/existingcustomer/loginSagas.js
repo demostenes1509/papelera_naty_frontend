@@ -2,7 +2,7 @@ import { fork, take, call, put } from 'redux-saga/effects'
 import Actions, { LoginTypes } from './loginActions'
 import LoginApi from './loginApi'
 import userSessionActions from 'components/usersession/userSessionActions'
-import { setToken } from 'components/util/SessionUtil';
+import { setToken,setAxiosAuthToken } from 'components/util/SessionUtil';
 import jwt from 'jsonwebtoken';
 import { JWT_KEY } from 'config';
 
@@ -14,8 +14,8 @@ function *loginPost(actions,api,request) {
 		const { token } = response.data;
 
 		setToken(token);
+		setAxiosAuthToken(token);
 		const payload = jwt.verify(token,JWT_KEY);
-
 		yield put(userSessionActions.loggedIn(payload));
   } 
   catch (err) {
