@@ -18,8 +18,6 @@ class OAuth extends Component {
     const { socket, provider } = this.props
 
     socket.on(provider, response => {  
-			console.log(JSON.stringify(response));
-			// this.popup.close()
 			
 			const check = setInterval(() => {
 				if (this.popup) {
@@ -30,8 +28,6 @@ class OAuth extends Component {
 					raiseTokenAction(token, this.props.loggedIn,null);
 				}
 			}, 1000);
-
-      // this.setState({user})
     })
   }
 
