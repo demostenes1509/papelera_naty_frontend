@@ -25,12 +25,15 @@ const setAxiosAuthToken = token => {
 }
 
 const raiseTokenAction = (token,loggedIn, notLoggedIn) => {
-	setAxiosAuthToken(token);
 	if(token) {
+		setToken(token);
+		setAxiosAuthToken(token);
 		const payload = jwt.verify(token,JWT_KEY);
 		loggedIn(payload);
 	}
 	else {
+		clearToken();
+		setAxiosAuthToken();
 		notLoggedIn();
 	}
 }
