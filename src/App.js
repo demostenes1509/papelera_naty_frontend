@@ -6,20 +6,16 @@ import Authentication from 'components/authentication/Authentication';
 import SideBar from 'components/sidebar/SideBar';
 import MainContent from 'components/maincontent/MainContent';
 import Product from 'components/productcontent/Product';
-import tokenActions from 'components/token/tokenActions'
-import { connect } from 'react-redux'
-import { socket } from 'components/util/SocketUtil';
-
-// import io from 'socket.io-client';
-// import {API_URL} from 'config';
-
-// const socket = io(API_URL);
+import userSessionActions from 'components/usersession/userSessionActions'
+import { connect } from 'react-redux';
+import { getToken,raiseTokenAction } from 'components/util/SessionUtil';
+import jwt from 'jsonwebtoken';
+import { JWT_KEY } from 'config';
 
 class App extends Component {
 
   render() {
 		const { loggedin } = this.props;
-		
     if(loggedin===null) return <></>;
     return (
       <Router>
@@ -36,20 +32,18 @@ class App extends Component {
   }
 
   componentWillMount() {
-		const { fetch } = this.props; 
-		socket.on('connect', function() {
-			fetch(socket.id);
-		}); 
+		const token=getToken();
+		raiseTokenAction(token, this.props.loggedIn,this.props.notLoggedIn);
   }
 }
 
 const mapStateToProps = state => ({
-	loggedin: state.userSessionReducer.isLoggedIn,
-	error: state.userSessionReducer.error	
+	loggedin: state.userSessionReducer.isLoggedIn
 })
 
 const mapDispatchToProps = dispatch => ({
-	fetch: (socketId) => dispatch(tokenActions.fetch(socketId)),
+	loggedIn: (payload) => dispatch(userSessionActions.loggedIn(payload)),
+	notLoggedIn: (payload) => dispatch(userSessionActions.notLoggedIn())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

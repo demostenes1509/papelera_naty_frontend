@@ -15,8 +15,6 @@ class NewCustomer extends Component {
 
   render() {
 
-		console.log('SOCKET ID:'+socket.id);
-
     return (
       <div className="authentication-forms-container">
 				{providers.map(provider => 
