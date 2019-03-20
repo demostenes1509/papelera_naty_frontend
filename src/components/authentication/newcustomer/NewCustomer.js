@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import OAuth from './OAuth';
 import { socket } from 'components/util/SocketUtil';
 
-const providers = ['google', 'facebook','twitter'];
+const providers = ['google', 'facebook','instagram'];
 
 class NewCustomer extends Component {
 
