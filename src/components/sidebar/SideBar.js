@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
-import { PropagateLoader } from 'react-spinners';
+import { PropagateLoader, PacmanLoader } from 'react-spinners';
 import sidebarActions from './sidebarActions'
+import { clone } from 'ramda';
 
 class SideBar extends Component {
 
 	render() {
-		const { payload, loading, error } = this.props;
+		const { payload, loading, error, isadmin } = this.props;
+
+		const categories = clone(payload.categories);
+		const offers = payload.offers;
+		if( isadmin ) {
+			categories.forEach(c => {
+				c.products.push({id:0,name:'Crear nuevo producto', url:'crear-nuevo-producto'});
+			});
+		}
 
 		return (
 
@@ -28,7 +37,7 @@ class SideBar extends Component {
 											loading={loading}
 										/>
 
-						{payload.categories.map(category => (
+						{categories.map(category => (
 							<li key={category.id}>
 								<Link to={`/${category.url}`}>{category.name}</Link>
 								<ul className="aside-sub-menu">
@@ -72,7 +81,7 @@ class SideBar extends Component {
 					<h2 className="aside-title">Descuentos</h2>
 
 
-					{payload.offers.map(offer => (
+					{offers.map(offer => (
 						<div key={offer.id} className="discount-container ">
 							<div className="discount-image">
 								<Link to={`/${offer.category.url}/${offer.url}`}>
@@ -138,7 +147,8 @@ class SideBar extends Component {
 const mapStateToProps = state => ({
 	payload: state.sidebarReducer.payload,
 	loading: state.sidebarReducer.loading,
-	error: state.sidebarReducer.error
+	error: state.sidebarReducer.error,
+	isadmin: state.userSessionReducer.isAdmin
 })
 
 const mapDispatchToProps = dispatch => ({

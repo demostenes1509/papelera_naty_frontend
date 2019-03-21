@@ -6,6 +6,7 @@ import Authentication from 'components/authentication/Authentication';
 import SideBar from 'components/sidebar/SideBar';
 import MainContent from 'components/maincontent/MainContent';
 import Product from 'components/productcontent/Product';
+import NewProduct from 'components/productcontent/NewProduct';
 import userSessionActions from 'components/usersession/userSessionActions'
 import { connect } from 'react-redux';
 import { getToken,raiseTokenAction } from 'components/util/SessionUtil';
@@ -25,6 +26,7 @@ class App extends Component {
           <Layout exact path="/login" components={[Authentication]}/>
           <Layout exact path="/search/:search" components={[SideBar,MainContent]}/>
           <Layout exact path="/:category" components={[SideBar,MainContent]}/>
+          <Layout exact path="/:category/crear-nuevo-producto" components={[SideBar,NewProduct]}/>
           <Layout exact path="/:category/:product" components={[SideBar,Product]}/>
         </Switch>
       </Router>
