@@ -613,12 +613,25 @@ a.enlarge-product-btn {
   width: 46%;
   float: left;
   margin: 0 0 80px 4%;
+  display: flex;
+  flex-flow: column;
 }
 
 .product-details-col h2 {
   font-size: 22px;
   font-weight: 600;
   margin: 0 0 20px;
+}
+
+.product-details-col-name {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 20px;
+}
+
+.product-details-col-description {
+  font-size: 18px;
+  margin: 0 0 10px;
 }
 
 .product-details-col h2 {
