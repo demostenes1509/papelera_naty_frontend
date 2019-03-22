@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
-import { PropagateLoader, PacmanLoader } from 'react-spinners';
+import { PropagateLoader } from 'react-spinners';
 import sidebarActions from './sidebarActions'
 import { clone } from 'ramda';
 

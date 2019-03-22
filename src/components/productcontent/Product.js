@@ -37,24 +37,24 @@ class Product extends Component {
 						<ul>
 							<li>Bolsa 10 unid. De 100 grs a $10.00 c/u</li>
 							<li>1 Bolsas de $80.00 c/u a $80.00</li>
-							<li className="quantity">Cantitdad <input type="text" /><span className="product-price">1,78€</span><a href="" className="add-to-basket">carrito</a></li>
+							<li className="quantity">Cantidad <input type="text" /><span className="product-price">1,78€</span><a href="" className="add-to-basket">carrito</a></li>
 						</ul>
 					</div>
 					<div className="product-content-details">
 						<ul>
 							<li>Bolsa 10 unid. De 100 grs a $10.00 c/u</li>
 							<li>1 Bolsas de $80.00 c/u a $80.00</li>
-							<li className="quantity">Cantitdad <input type="text" /><span className="product-price">1,78€</span><a href="" className="add-to-basket">carrito</a></li>
+							<li className="quantity">Cantidad <input type="text" /><span className="product-price">1,78€</span><a href="" className="add-to-basket">carrito</a></li>
 						</ul>
 					</div>
 					<div className="product-content-details">
 						<ul>
 							<li>Bolsa 10 unid. De 100 grs a $10.00 c/u</li>
 							<li>1 Bolsas de $80.00 c/u a $80.00</li>
-							<li className="quantity">Cantitdad <input type="text" /><span className="product-price">1,78€</span><a href="" className="add-to-basket">carrito</a></li>
+							<li className="quantity">Cantidad <input type="text" /><span className="product-price">1,78€</span><a href="" className="add-to-basket">carrito</a></li>
 						</ul>
 					</div>
-					<p>IVA includio</p>
+					<p>IVA incluído</p>
 				</section>
 			</div>
 		);
